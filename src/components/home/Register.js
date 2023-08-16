@@ -2,7 +2,13 @@ import React from 'react';
 import pic101 from '../../assets/images/pic101.png';
 import { Row, Col, Button } from 'react-bootstrap';
 import '../../assets/css/home/Register.css';
+import { useHistory } from 'react-router-dom';
 const Register = () => {
+  const history = useHistory();
+  const handleButtonClick = () => {
+    history.push('/register');
+    window.location.reload();
+  };
   return (
     <div>
       <Row>
@@ -36,7 +42,12 @@ const Register = () => {
               eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum
               dolor sit amet, consectetur adipiscing e
             </p>
-            <button className="btn rounded reg-bttn">Register</button>
+            <button
+              className="btn rounded reg-bttn"
+              onClick={handleButtonClick}
+            >
+              Register
+            </button>
           </div>
         </Col>
         <Col
@@ -71,7 +82,12 @@ const Register = () => {
               eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum
               dolor sit amet, consectetur adipiscing e
             </p>
-            <button className="btn rounded reg-bttn">Register</button>
+            <button
+              className="btn rounded reg-bttn"
+              onClick={handleButtonClick}
+            >
+              Register
+            </button>
           </div>
         </Col>
       </Row>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CourseListCard from '../components/courselist/CourseListCard';
+import { FaAngleDown } from 'react-icons/fa';
 import { RiHomeLine } from 'react-icons/ri';
 import { IoIosTarget } from 'react-icons/io';
 import {
@@ -39,13 +40,16 @@ import {
   titleTag,
   subTopRatedTag,
 } from '../assets/customcss/CustomCss';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { useCourseStore } from '../store';
 const CourseList = () => {
   const [range, setRange] = useState([0, 100]);
+  const [isFilterVisible, setFilterVisible] = useState(false);
+  const [selectedFilterOption, setSelectedFilterOption] = useState('');
+  const [isFilterBtnVisible, setFilterBtnVisible] = useState(true);
+
   const { courses, fetchCourses } = useCourseStore();
-  const handleRangeChange = (newRange) => {
-    setRange(newRange);
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -57,6 +61,12 @@ const CourseList = () => {
     `Course`,
     courses.map((course) => course.id)
   );
+  /* Filter Section End */
+
+  const handleRangeChange = (newRange) => {
+    setRange(newRange);
+  };
+
   const trackStyle = { backgroundColor: 'rgba(9, 185, 112, 1)' }; // Custom track color
   const handleStyle = {
     backgroundColor: 'rgba(9, 185, 112, 1)', // Custom handle color
@@ -143,6 +153,7 @@ const CourseList = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className="banner-course-list">
         <Container fluid className="p-5">
           <Row>
@@ -157,26 +168,9 @@ const CourseList = () => {
             </div>
           </Row>
           <Row className="banner-options-course-list p-5">
-            <Col
-              xs={12}
-              md={6}
-              lg={6}
-              className="custom-column "
-              style={
-                {
-                  /* marginLeft: '7%', marginTop: '2%'  */
-                }
-              }
-            >
-              <div
-                className="search"
-                style={
-                  {
-                    /* marginTop: '64px' */
-                  }
-                }
-              >
-                <select className="form-select">
+            <Col xs={12} md={4} lg={5} className="custom-column ">
+              <div className="search">
+                <select className="form-select custom-input">
                   <option selected>Choose Location</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -184,31 +178,17 @@ const CourseList = () => {
                 </select>
               </div>
             </Col>
-            <Col xs={6} className="custom-column">
-              <div
-                className="text-form"
-                style={
-                  {
-                    /* marginTop: '1px' */
-                  }
-                }
-              >
+            <Col xs={12} md={4} lg={5} className="custom-column ">
+              <div className="text-form">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control custom-input"
                   placeholder="Write Keywords or course name"
                 />
               </div>
             </Col>
-            <Col
-              xs={12}
-              sm={6}
-              md={6}
-              lg={9}
-              style={{ paddingLeft: '30px' }}
-              className="custom-column"
-            >
-              <button type="button" class="search-bttn btn-success">
+            <Col className="custom-column">
+              <button type="button" class="search-bttn btn-success custom-btn">
                 SEARCH
               </button>
             </Col>
@@ -220,8 +200,23 @@ const CourseList = () => {
       </div>
       <Container>
         <Row>
+          {/* <div className='filter-btn-div'>
+            {isFilterBtnVisible && (
+              <button 
+                className='filter-btn'
+                onClick={toggleFilter}>Filter Options
+              </button>
+            )}
+          </div>
+      {isFilterVisible && (
+        <div className="dropdown filter-dropdown-overlay">
+          <div className='filter-dropdown-content'> */}
+          {/* <button className="close-button" onClick={closeDropdown}>
+              Close
+            </button> */}
           <Col
-            xs={3}
+            xs={12}
+            lg={3}
             className="pt-3 mt-5 "
             style={{
               backgroundColor: '#fafafa',
@@ -488,7 +483,7 @@ const CourseList = () => {
               style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
             ></div>
             {/* Trades section start from here */}
-            <div className="d-flex my-4">
+            {/* <div className="d-flex my-4">
               <h5 className="fw-bold" style={{ paddingRight: '65%' }}>
                 Trades
               </h5>
@@ -500,18 +495,18 @@ const CourseList = () => {
               className="row"
               style={{
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: 'column !important',
                 textAlign: 'left',
               }}
             >
               <Form>
                 {trades.map((category, categoryIndex) => (
                   <div
-                    className="col-md-12"
+                    className="col-md-12 trade-category-index"
                     key={categoryIndex}
                     style={{
                       display: 'flex',
-                      flexDirection: 'column',
+                      flexDirection: 'column ',
                       alignItems: 'left',
                       marginLeft: '-40px',
                     }}
@@ -542,7 +537,7 @@ const CourseList = () => {
                     {categoryStates[categoryIndex] && (
                       <div style={{ marginLeft: '50px' }}>
                         {' '}
-                        {/* Indent the subcategories further */}
+                     
                         {category.subcategories.map(
                           (subcategory, subcategoryIndex) => (
                             <div key={subcategoryIndex}>
@@ -561,7 +556,7 @@ const CourseList = () => {
                                   color: subcategory.checked
                                     ? '#09B970'
                                     : 'inherit',
-                                  transform: 'scale(1.1)', // Increase checkbox size
+                                  transform: 'scale(1.1)', 
                                   marginLeft: '-30px',
                                   paddingBottom: '30px',
                                   borderColor: '#fff',
@@ -576,7 +571,7 @@ const CourseList = () => {
                   </div>
                 ))}
               </Form>
-            </div>
+            </div> */}
 
             <div
               style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
@@ -645,8 +640,12 @@ const CourseList = () => {
               }}
             ></div>
           </Col>
+          {/* {</div>
+        </div>}
+      )} */}
+
           {/* Right section */}
-          <Col xs={9} style={{ paddingLeft: '30px' }}>
+          <Col xs={12} lg={9} style={{ paddingLeft: '0px' }}>
             <div className="mt-5 ">
               <Row>
                 <div className="col-md-6">
@@ -718,6 +717,7 @@ const CourseList = () => {
           </Col>
         </Row>
       </Container>
+      <Footer></Footer>
     </div>
   );
 };

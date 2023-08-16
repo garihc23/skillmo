@@ -1,30 +1,35 @@
-.add-cart{
-    background: linear-gradient(131.49deg, #0BD580 1.59%, #04B36A 93.92%);
-    border-color: #0BD580;
-    padding: 10px 10px;
-    font-size: 14px !important;
+.add-cart {
+  background: linear-gradient(131.49deg, #0bd580 1.59%, #04b36a 93.92%);
+  border-color: #0bd580;
+  padding: 10px 10px;
+  font-size: 14px !important;
 }
-.reg-course-btn{
-    background: linear-gradient(131.49deg, #0BD580 1.59%, #04B36A 93.92%);
-    border-color: #0BD580;
-    padding: 15px 20px !important;
-    font-size: 14px !important;
-    font-weight: 550;
+.reg-course-btn {
+  background: linear-gradient(131.49deg, #0bd580 1.59%, #04b36a 93.92%);
+  border-color: #0bd580;
+  padding: 15px 20px !important;
+  font-size: 14px !important;
+  font-weight: 550;
 }
-.get-advice-banner{
-    background: linear-gradient(90.35deg, #0A0513 22.52%, rgba(25, 13, 49, 0.9) 99.64%) !important;
+.get-advice-banner {
+  background: linear-gradient(
+    90.35deg,
+    #0a0513 22.52%,
+    rgba(25, 13, 49, 0.9) 99.64%
+  ) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /*responsive css*/
 @media (min-width: 360px) and (max-width: 991px) {
-    .get-advice-banner{
-        height: 350px;
-        
-    }
-    .get-advice-banner-text{
-        padding: 15% !important;
-    }
-    .get-advice-banner-btn{
-        margin-top: -25%;
-    }
+  .get-advice-banner {
+    height: 350px;
+  }
+  .get-advice-banner-text {
+    padding: 15% !important;
+  }
+  .get-advice-banner-btn {
+    margin-top: -25%;
+  }
 }

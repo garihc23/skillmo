@@ -17,10 +17,10 @@ import {
   titleTag,
   topRatedTag,
 } from '../../assets/customcss/CustomCss';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import '../../assets/css/home/Courses.css';
+import { useHistory } from 'react-router-dom';
 const Courses = () => {
+  const history = useHistory();
   const itemsPerPage = 3;
   const totalItems = 5; // Replace with your actual total number of courses
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -46,21 +46,28 @@ const Courses = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
-  const handleButtonClick = () => {};
+  const handleButtonClick = () => {
+    history.push('/course-list');
+    window.location.reload();
+  };
   // Calculate current page items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = courses.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
-      <h6 style={{ 
-        color: "#39128C",
-        fontFamily:'Metropolis, sans-serif',
-        fontSize:'16px',
-        lineHeight:'28px',
-        fontWeight:600,
-        letterSpacing:'4px'  
-    }}>Popular Courses</h6>
+      <h6
+        style={{
+          color: '#39128C',
+          fontFamily: 'Metropolis, sans-serif',
+          fontSize: '16px',
+          lineHeight: '28px',
+          fontWeight: 600,
+          letterSpacing: '4px',
+        }}
+      >
+        Popular Courses
+      </h6>
       <div>
         <h3 className="fw-bold mt-4 mb-4">Explore our more popular courses</h3>
       </div>
@@ -127,8 +134,7 @@ const Courses = () => {
                     <span className="me-2">
                       <FiCalendar style={{ color: '#09B970' }} />
                     </span>
-                    <span style= {{fontSize:'14px'}}>
-                      Starting:</span>
+                    <span style={{ fontSize: '14px' }}>Starting:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>20 Feb 2023</strong>
                   </div>
@@ -138,14 +144,16 @@ const Courses = () => {
                     <span className="me-2">
                       <FiClock style={{ color: '#09B970' }} />
                     </span>
-                    <span style= {{fontSize:'14px'}}
-                    >Schedule:</span>
+                    <span style={{ fontSize: '14px' }}>Schedule:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>20 Feb 2023</strong>
                   </div>
                 </div>
                 <div className="d-flex align-items-center">
-                  <h4 className="fw-bold mt-4 mb-4" style={{ color: '#09B970' }}>
+                  <h4
+                    className="fw-bold mt-4 mb-4"
+                    style={{ color: '#09B970' }}
+                  >
                     $60
                   </h4>
                   <span className="ms-3 text-secondary">× 3 Payments</span>
@@ -165,12 +173,12 @@ const Courses = () => {
                     <Button
                       className="w-100"
                       variant="info"
-                      style={{ 
+                      style={{
                         background: '#fff',
-                        padding: '10px 12px', 
-                        fontWeight:'700', 
-                        fontSize:'14px',
-                        borderColor:'#f1f1fe',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
                         shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
@@ -396,23 +404,22 @@ const Courses = () => {
             onClick={handleButtonClick}
           >            
           </button> */}
-          <Link to="/course-list">
-            <button
-                  className="btn "
-                  style={{
-                    border: '1px solid green',
-                    borderColor:'#04C977',
-                    borderRadius:'10px', 
-                    backgroundColor: 'transparent',
-                    padding: '12px 20px',
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                  }}
-                  onClick={handleButtonClick}
-                >
-                  SHOW ALL COURSES
-                </button>
-            </Link>
+          <button
+            className="btn "
+            style={{
+              border: '1px solid green',
+              borderColor: '#04C977',
+              borderRadius: '10px',
+              backgroundColor: 'transparent',
+              padding: '12px 20px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+            }}
+            onClick={handleButtonClick}
+          >
+            SHOW ALL COURSES
+          </button>
+
           <nav className="d-flex justify-content-center">
             <ul className="pagination">
               <li

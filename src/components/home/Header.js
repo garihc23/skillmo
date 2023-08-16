@@ -9,11 +9,13 @@ const Header = () => {
       <div className="header-container-fluid">
         <Container>
           <Row>
-            {/* <div
-              className="col col-sm-12 col-md-6 col-lg-6"
-              style={{ marginLeft: '7%', marginTop: '5%' }}
-            > */}
-            <Col xs={12} md={6} lg={6} style={{ marginTop: '5%' }}>
+            <Col
+              xs={12}
+              md={10}
+              lg={6}
+              className="header-text"
+              style={{ marginTop: '5%' }}
+            >
               <h6 className="header-h6">
                 <RiHomeLine className="home mx-1" />
                 <b>HOME</b>
@@ -32,10 +34,10 @@ const Header = () => {
         </Container>
       </div>
       <div className="wrapper">
-        <Container>
+        <Container className="dark-strip">
           <h4 className="title">Find the right course for you</h4>
           <form className="form">
-            <div className="search">
+            <div className="search col-lg-5 m-3">
               {/* <select class="form-select">
               <option selected>Choose Location</option>
               <option value="1">One</option>
@@ -49,7 +51,7 @@ const Header = () => {
                 <option value="3">Three</option>
               </Form.Select>
             </div>
-            <div class="text-form">
+            <div class="text-form col-lg-5 m-3">
               <input
                 type="text"
                 class="form-control"

@@ -3,33 +3,28 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-.loginCard {
+.login-container {
+  display: flex;
+  justify-content: center !important;
   font-size: 14px;
-  padding: 3% 1%;
+  padding: 50px 50px 30px 50px;
   max-width: 400px;
-  margin: 10% 35%;
-  /* background: rgb(235, 235, 235); */
+  margin: auto;
   background: white;
-  /* border: 1px solid rgba(235, 235, 235, 1); */
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px rgba(235, 235, 235, 1);
 }
 
-.login-logo {
-  display: flex;
-  padding: 10px 100px;
-  width: 30px;
-  height: 8vh !important;
-  background-color: #3b1b8c;
-  box-shadow: 0px 0px 0px 0px #16003c;
-  border-radius: 80px;
-  margin: 2% 25% 10% 8%;
-  align-items: center;
-  justify-content: center;
+.loginCard {
+  padding: 0% !important;
+  margin: auto;
 }
+
 .forgot-pass {
   font-size: 12px;
   margin-top: -3%;
@@ -43,11 +38,13 @@
 }
 
 .login-btn {
+  display: flex;
+  justify-content: center;
   background: linear-gradient(275.61deg, #04b96e 2.3%, #10d382 80.65%);
   border-color: #0bd580;
-  padding: 8px 10px !important;
-  font-size: 14px !important;
+  padding: 8px 10px;
+  font-size: 14px;
   font-weight: 600;
-  width: 35%;
-  margin-left: 0%;
+  margin: auto;
+  margin-top: 20px;
 }

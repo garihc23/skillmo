@@ -30,22 +30,17 @@ function App() {
   return (
     <>
       <Router>
-        <div>
-          <div>
-            <Route path="/" exact component={Home} />
-            <Route path="/course-list" component={CourseList} />
-            <Route path="/course-list-card" component={CourseListCard} />
-            <Route path="/course-details" component={CourseDetails} />
-            <Route path="/payment" component={Payment} />
-          </div>
-          <div>
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/forgot-password" component={ForgotPassword} />
-            <Route path="/password-reset" component={PasswordReset} />
-            <Route path="/change-password" component={ChangePassword} />
-          </div>
-        </div>
+        <Route path="/" exact component={Home} />
+        <Route path="/course-list" component={CourseList} />
+        <Route path="/course-list-card" component={CourseListCard} />
+        <Route path="/course-details" component={CourseDetails} />
+        <Route path="/payment" component={Payment} />
+
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/password-reset" component={PasswordReset} />
+        <Route path="/change-password" component={ChangePassword} />
       </Router>
     </>
   );

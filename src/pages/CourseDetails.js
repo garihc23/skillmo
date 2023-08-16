@@ -22,11 +22,14 @@ import {
   subTopRatedTag,
 } from '../assets/customcss/CustomCss';
 import '../assets/css/CourseDetails.css';
-
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { useLocation } from 'react-router-dom';
 const CourseDetails = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
+  const location = useLocation();
+  const { coursesData } = location.state;
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };
@@ -35,14 +38,30 @@ const CourseDetails = () => {
     setEndDate(date);
   };
 
+  console.log('database', coursesData);
   return (
-    <div style={{ marginTop: '50px' }}>
-      <div className='py-4' style={{ backgroundColor: 'rgba(241, 243, 249, 1)' }}>
+    <div /* style={{ marginTop: '50px' }} */>
+      <Navbar></Navbar>
+      <div
+        className="py-4"
+        style={{ backgroundColor: 'rgba(241, 243, 249, 1)' }}
+      >
         <div className="container">
           <Row>
-            <Col  xs={12} md={12} lg={12} >
-              <p className="d-flex justify-content-between" style={{ color: 'gray', letterSpacing: '2px', fontSize: '12px', fontWeight: 600 }}>
-                <span><FaHome />&nbsp;&nbsp;Home / Course Category / Course Name</span>
+            <Col xs={12} md={12} lg={12}>
+              <p
+                className="d-flex justify-content-between"
+                style={{
+                  color: 'gray',
+                  letterSpacing: '2px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                }}
+              >
+                <span>
+                  <FaHome />
+                  &nbsp;&nbsp;Home / Course Category / Course Name
+                </span>
                 <span>Course Code: ABC XYZ</span>
               </p>
             </Col>
@@ -52,16 +71,32 @@ const CourseDetails = () => {
                   <div /* className="d-flex " */>
                     <span className="category-tag">Category Name</span>
                     <span className="category-tag">Category Name</span>
-                    <span className="category-tag">Other...<FiInfo /></span>
+                    <span className="category-tag">
+                      Other...
+                      <FiInfo />
+                    </span>
                   </div>
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <div>
                       <span /* className="me-2" */>
-                        <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7 9.75V6.75M13.75 4.5L12.25 3M5.5 1.5H8.5M7 15.75C5.4087 15.75 3.88258 15.1179 2.75736 13.9926C1.63214 12.8674 1 11.3413 1 9.75C1 8.1587 1.63214 6.63258 2.75736 5.50736C3.88258 4.38214 5.4087 3.75 7 3.75C8.5913 3.75 10.1174 4.38214 11.2426 5.50736C12.3679 6.63258 13 8.1587 13 9.75C13 11.3413 12.3679 12.8674 11.2426 13.9926C10.1174 15.1179 8.5913 15.75 7 15.75Z" stroke="#09B970" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                          width="15"
+                          height="17"
+                          viewBox="0 0 15 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 9.75V6.75M13.75 4.5L12.25 3M5.5 1.5H8.5M7 15.75C5.4087 15.75 3.88258 15.1179 2.75736 13.9926C1.63214 12.8674 1 11.3413 1 9.75C1 8.1587 1.63214 6.63258 2.75736 5.50736C3.88258 4.38214 5.4087 3.75 7 3.75C8.5913 3.75 10.1174 4.38214 11.2426 5.50736C12.3679 6.63258 13 8.1587 13 9.75C13 11.3413 12.3679 12.8674 11.2426 13.9926C10.1174 15.1179 8.5913 15.75 7 15.75Z"
+                            stroke="#09B970"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       </span>
-                      New Start at:&nbsp;&nbsp;&nbsp;&nbsp;<strong>20 Feb 2023</strong>
+                      New Start at:&nbsp;&nbsp;&nbsp;&nbsp;
+                      <strong>20 Feb 2023</strong>
                     </div>
                   </div>
                   <div>
@@ -70,34 +105,49 @@ const CourseDetails = () => {
                       headline course headline
                     </h3>
                     <p>
-                      Short Description of the course here Short Description of the
-                      course here Short Description of the course here
+                      Short Description of the course here Short Description of
+                      the course here Short Description of the course here
                     </p>
                   </div>
                   <div>
-                    <button className="btn m-1 px-3 py-2 reg-course-btn" type="submit" style={{ background: 'rgba(4, 201, 119, 1)', fontSize: '14px', color: '#fafafa' }}>
+                    <button
+                      className="btn m-1 px-3 py-2 reg-course-btn"
+                      type="submit"
+                      style={{
+                        background: 'rgba(4, 201, 119, 1)',
+                        fontSize: '14px',
+                        color: '#fafafa',
+                      }}
+                    >
                       REGISTER TO THE COURSE
                     </button>
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={6}>
-                  <img src={headerPic} alt="Photo" style={{ width: '100%', height: 'auto' }} />
+                  <img
+                    src={headerPic}
+                    alt="Photo"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
                 </Col>
               </Row>
             </Col>
-            
           </Row>
         </div>
       </div>
 
       <div className="container" style={{ paddingTop: '50px' }}>
-        <h6 style={{
+        <h6
+          style={{
             color: '#39128C',
             fontFamily: 'Metropolis,sans-serif',
-            fontSize:'16px',
-            fontWeight:600,
-            letterSpacing: '7px'
-          }}>Overview</h6>
+            fontSize: '16px',
+            fontWeight: 600,
+            letterSpacing: '7px',
+          }}
+        >
+          Overview
+        </h6>
         <div>
           <h3 className="fw-bold mt-4 mb-4">About the course</h3>
         </div>
@@ -228,8 +278,17 @@ const CourseDetails = () => {
         </div>
       </div>
 
-      <Row className="wrapper mt-5 row get-advice-banner" style={{ display: 'flex' }}>
-        <Col className='get-advice-banner-text' xs={12} md={12} lg={7}   style={{padding: '6%' }}>
+      <Row
+        className="wrapper mt-5 row get-advice-banner"
+        style={{ display: 'flex' }}
+      >
+        <Col
+          className="get-advice-banner-text"
+          xs={12}
+          md={12}
+          lg={7}
+          style={{ padding: '6%' }}
+        >
           <h4 style={{ color: '#fafafa' }}>
             Need a consultation? Speak with an education advisor.
           </h4>
@@ -237,8 +296,11 @@ const CourseDetails = () => {
             Our education advisors are here to answer your questions.
           </p>
         </Col>
-        <Col xs={12} md={12} lg={5}
-          style={{            
+        <Col
+          xs={12}
+          md={12}
+          lg={5}
+          style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -249,8 +311,8 @@ const CourseDetails = () => {
             style={{
               backgroundColor: '#10D382',
               color: '#fafafa',
-              fontWeight:700,
-              fontSize:'16px',
+              fontWeight: 700,
+              fontSize: '16px',
               padding: '15px 25px',
               border: 'none',
               borderRadius: '8px',
@@ -263,13 +325,17 @@ const CourseDetails = () => {
 
       <div className="container">
         <div className="mt-5 mb-5">
-          <h6 style={{
-            color: '#39128C',
-            fontFamily: 'Metropolis,sans-serif',
-            fontSize:'16px',
-            fontWeight:600,
-            letterSpacing: '7px'
-          }}>Relevant courses</h6>
+          <h6
+            style={{
+              color: '#39128C',
+              fontFamily: 'Metropolis,sans-serif',
+              fontSize: '16px',
+              fontWeight: 600,
+              letterSpacing: '7px',
+            }}
+          >
+            Relevant courses
+          </h6>
           <h3 className="fw-bold mt-3">You may also be interested in</h3>
         </div>
         <div className="row my-4">
@@ -358,7 +424,10 @@ const CourseDetails = () => {
                 </div>
                 <Row>
                   <Col>
-                    <Button className="w-100 fw-bold add-cart" variant="success">
+                    <Button
+                      className="w-100 fw-bold add-cart"
+                      variant="success"
+                    >
                       <FiShoppingCart className="me-1" />
                       CART
                     </Button>
@@ -367,12 +436,12 @@ const CourseDetails = () => {
                     <Button
                       className="w-100"
                       variant="info"
-                      style={{ 
+                      style={{
                         background: '#fff',
-                        padding: '10px 12px', 
-                        fontWeight:'700', 
-                        fontSize:'14px',
-                        borderColor:'#f1f1fe',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
                         shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
@@ -484,12 +553,12 @@ const CourseDetails = () => {
                     <Button
                       className="w-100"
                       variant="info"
-                      style={{ 
+                      style={{
                         background: '#fff',
-                        padding: '10px 12px', 
-                        fontWeight:'700', 
-                        fontSize:'14px',
-                        borderColor:'#f1f1fe',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
                         shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
@@ -601,12 +670,12 @@ const CourseDetails = () => {
                     <Button
                       className="w-100"
                       variant="info"
-                      style={{ 
+                      style={{
                         background: '#fff',
-                        padding: '10px 12px', 
-                        fontWeight:'700', 
-                        fontSize:'14px',
-                        borderColor:'#f1f1fe',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
                         shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
@@ -718,12 +787,12 @@ const CourseDetails = () => {
                     <Button
                       className="w-100"
                       variant="info"
-                      style={{ 
+                      style={{
                         background: '#fff',
-                        padding: '10px 12px', 
-                        fontWeight:'700', 
-                        fontSize:'14px',
-                        borderColor:'#f1f1fe',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
                         shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
@@ -743,6 +812,7 @@ const CourseDetails = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

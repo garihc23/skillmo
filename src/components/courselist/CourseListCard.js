@@ -38,6 +38,20 @@ const CourseListCard = (props) => {
   const history = useHistory();
   const { data } = props;
   console.log('data', data);
+  const detailsPage = (course) => {
+    history.push({
+      pathname: '/course-details',
+      state: { coursesData: course }, // Pass courses data in the state object
+    });
+    window.location.reload();
+  };
+  const paymentPage = (course) => {
+    history.push({
+      pathname: '/payment',
+      state: { paymentData: course }, // Pass courses data in the state object
+    });
+    window.location.reload();
+  };
   return (
     <div>
       {data.map((course, index) => (
@@ -163,12 +177,7 @@ const CourseListCard = (props) => {
                             borderColor: '#1B17201A',
                             boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
                           }}
-                          onClick={() =>
-                            history.push({
-                              pathname: '/course-details',
-                              state: { coursesData: course }, // Pass courses data in the state object
-                            })
-                          }
+                          onClick={() => detailsPage(course)}
                         >
                           {/* <FiInfo className="me-2" /> */}
                           More Info
@@ -183,6 +192,7 @@ const CourseListCard = (props) => {
                             padding: '10px',
                             fontSize: '18px',
                           }}
+                          onClick={() => paymentPage(course)}
                         >
                           <FiShoppingCart className="me-2" />
                           Buy Now

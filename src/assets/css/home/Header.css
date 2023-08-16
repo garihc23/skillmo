@@ -54,7 +54,7 @@
 form {
   margin: 0 50px 0 50px;
   display: flex;
-  justify-content: space-between !important;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -72,19 +72,18 @@ form {
 }
 
 .form-select {
-  width: 500px !important;
+  width: 500px;
   /*  margin-top: -65px; */
-  padding: 10px !important;
+  padding: 10px;
 }
 .text-form {
-  width: 500px !important;
+  width: 500px;
   /*  margin-top: -84px; */
-  padding: 10px;
 }
 
 .text-info {
   width: 40%;
-  padding-right: 30px !important;
+  padding-right: 30px;
 }
 
 .new-info {
@@ -92,7 +91,7 @@ form {
 }
 
 .form-control {
-  padding: 10px !important;
+  padding: 10px;
   color: lightgrey;
 }
 
@@ -111,30 +110,29 @@ form {
   color: #fff;
   /* margin-top: -90px; */
 }
-.dark_strip {
+.dark-strip {
   border: 1px solid rgb(0, 0, 0);
   max-width: 1300px;
   margin: auto;
-  height: 28vh;
+  height: auto;
   border-radius: 30px;
-  background-color: rgb(32, 17, 129);
+  background-color: #0a0513;
   align-items: center;
   justify-content: center;
 }
 
 /* Adjust header text for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
   .header-h1 {
     font-size: 40px;
   }
   .header-h4 {
     font-size: 20px;
   }
-}
+  .header-container-fluid {
+    height: 400px !important;
+  }
 
-/*Responsive Code*/
-/* Make the form elements stack for smaller screens */
-@media screen and (max-width: 576px) {
   .form {
     flex-direction: column;
     align-items: center;
@@ -149,10 +147,34 @@ form {
   .form-control {
     width: 100%;
   }
+
+  .title {
+    padding: 30px 30px 10px 30px;
+    font-size: 20px;
+  }
 }
 
-/* Adjust the title size for smaller screens */
+/*Responsive Code*/
+/* Make the form elements stack for smaller screens */
 @media screen and (max-width: 576px) {
+  .header-container-fluid {
+    height: 500px !important;
+  }
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .search,
+  .text-form,
+  .buttn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .form-select,
+  .form-control {
+    width: 100%;
+  }
+
   .title {
     padding: 30px 30px 10px 30px;
     font-size: 20px;

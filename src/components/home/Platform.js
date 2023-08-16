@@ -19,8 +19,13 @@ import {
 } from '../../assets/customcss/CustomCss';
 import { Link } from 'react-router-dom';
 import '../../assets/css/home/Platform.css';
-
+import { useHistory } from 'react-router-dom';
 const platform = () => {
+  const history = useHistory();
+  const handleButtonClick = () => {
+    history.push('/course-list');
+    window.location.reload();
+  };
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
       <h6
@@ -1017,6 +1022,7 @@ const platform = () => {
             fontSize: '14px',
             fontWeight: 'bold',
           }}
+          onClick={handleButtonClick}
         >
           SHOW ALL COURSES
         </button>

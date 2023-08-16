@@ -1,0 +1,21 @@
+/* .bg-img{
+    background-image: url("../../assets/images/Rectangle 103035.png") !important;
+} */
+/* Adjust the height and vertical alignment of the main container */
+.bg-img {
+  height: 272px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center content for smaller screens */
+@media screen and (max-width: 768px) {
+  .col-md-3 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .bg-img {
+    height: 60vh;
+  }
+}

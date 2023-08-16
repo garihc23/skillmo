@@ -1,0 +1,45 @@
+.testimonials-row {
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px; /* Adjust the fade height as needed */
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.bttn {
+  padding: 11px;
+  width: auto;
+  font-size: 15px;
+  border-radius: 10px;
+  border-color: #0bd580 !important;
+  background: linear-gradient(131.49deg, #0bd580 1.59%, #04b36a 93.92%);
+  margin: 30px 0px 40px 0px;
+  color: #fff;
+}
+
+/* CSS for max-width: 576px (Mobile) */
+@media (max-width: 576px) {
+  .testimonials-row .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .bttn {
+    /* Custom styles for the button on mobile screens */
+  }
+}
+
+/* CSS for min-width: 768px and max-width: 991px (Tablet) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .testimonials-row .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

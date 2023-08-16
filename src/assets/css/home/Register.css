@@ -1,0 +1,12 @@
+.reg-bttn{
+    padding: 10px 20px;
+    font-weight: 700;
+    width: 180px;
+    height: 60px;
+    font-size: 15px;
+    border-radius: 10px;
+    border-color: #0BD580 !important;
+    background: linear-gradient(131.49deg, #0BD580 1.59%, #04B36A 93.92%);
+    margin: 10px 0px 10px 0px; 
+    color: #fff;
+  }

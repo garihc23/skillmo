@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-container-fluid {
+  background-image: url(../../images/Rectangle\ 103022.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
+  /* background-color: black; */
+}
+
+.home {
+  color: rgb(54, 168, 54);
+  font-size: 20px;
+}
+
+.header-h6 {
+  color: white;
+  margin-bottom: 5%;
+}
+
+.header-h1 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 701;
+  margin-bottom: 4%;
+}
+
+.header-h1 span {
+  color: rgb(54, 168, 54);
+}
+
+.header-h4 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.wrapper {
+  background-image: url(../../images/Rectangle\ 103023.png);
+  background-size: cover;
+  border: 1px solid rgb(0, 0, 0);
+  max-width: 1300px;
+  margin: auto;
+  height: 28vh;
+  margin-top: -100px;
+  border-radius: 30px;
+  background-color: black;
+}
+form {
+  margin: 0 50px 0 50px;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.title {
+  color: #fff;
+  padding: 50px 50px 20px 50px;
+}
+
+.content {
+  color: white;
+}
+
+.demo_text {
+  color: #fff;
+}
+
+.form-select {
+  width: 500px !important;
+  /*  margin-top: -65px; */
+  padding: 10px !important;
+}
+.text-form {
+  width: 500px !important;
+  /*  margin-top: -84px; */
+  padding: 10px;
+}
+
+.text-info {
+  width: 40%;
+  padding-right: 30px !important;
+}
+
+.new-info {
+  width: 35%;
+}
+
+.form-control {
+  padding: 10px !important;
+  color: lightgrey;
+}
+
+.form-control::before {
+  content: 'Key-words:';
+  color: black;
+  font-weight: 700;
+}
+.search-bttn {
+  padding: 11px;
+  width: 120px;
+  font-size: 15px;
+  border-radius: 10px;
+  border-color: #0bd580;
+  background: linear-gradient(131.49deg, #0bd580 1.59%, #04b36a 93.92%);
+  color: #fff;
+  /* margin-top: -90px; */
+}
+.dark_strip {
+  border: 1px solid rgb(0, 0, 0);
+  max-width: 1300px;
+  margin: auto;
+  height: 28vh;
+  border-radius: 30px;
+  background-color: rgb(32, 17, 129);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust header text for smaller screens */
+@media screen and (max-width: 768px) {
+  .header-h1 {
+    font-size: 40px;
+  }
+  .header-h4 {
+    font-size: 20px;
+  }
+}
+
+/*Responsive Code*/
+/* Make the form elements stack for smaller screens */
+@media screen and (max-width: 576px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .search,
+  .text-form,
+  .buttn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .form-select,
+  .form-control {
+    width: 100%;
+  }
+}
+
+/* Adjust the title size for smaller screens */
+@media screen and (max-width: 576px) {
+  .title {
+    padding: 30px 30px 10px 30px;
+    font-size: 20px;
+  }
+}

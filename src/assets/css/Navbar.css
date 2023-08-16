@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 14px !important;
+}
+
+li {
+  list-style: none;
+}
+
+.dropdown {
+  color: #380d96;
+  font-weight: 10px;
+}
+
+.icon {
+  background-color: #e7e9eb;
+  border-radius: 30px;
+}
+
+.navbar-nav {
+  border-right: 1px solid #e7e9eb;
+}
+
+.btn {
+  font-size: 13px;
+}
+
+.heart {
+  color: #380d96;
+}
+
+.cart {
+  color: #380d96;
+}
+.navbar-sticky {
+  /* margin-bottom: 20px; */
+  background-color: white;
+}

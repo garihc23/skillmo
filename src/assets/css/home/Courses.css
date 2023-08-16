@@ -1,0 +1,74 @@
+.title-tag {
+  color: #1877f2;
+}
+
+.add-cart {
+  background: linear-gradient(131.49deg, #0bd580 1.59%, #04b36a 93.92%);
+  border-color: #0bd580;
+  padding: 10px 10px;
+  font-size: 14px !important;
+}
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  /* Adjust the font size and padding for smaller screens */
+  .container h6 {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .container h3 {
+    font-size: 24px;
+  }
+
+  .title-tag {
+    font-size: 14px;
+  }
+
+  .categoryTag {
+    font-size: 12px;
+  }
+
+  .mb-n3 {
+    margin-bottom: -15px;
+  }
+
+  /* Adjust the position of the tags */
+  .position-absolute {
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: auto;
+  }
+
+  /* Make the buttons in the card full-width on smaller screens */
+  .add-cart,
+  .w-100 {
+    width: 100%;
+  }
+}
+
+/* Media Queries for smaller screens, e.g., mobile devices */
+@media (max-width: 576px) {
+  /* Adjust the font size and padding for smaller screens */
+  .container h6 {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .container h3 {
+    font-size: 20px;
+  }
+
+  .title-tag {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .categoryTag {
+    font-size: 10px;
+  }
+
+  .mb-n3 {
+    margin-bottom: -10px;
+  }
+}

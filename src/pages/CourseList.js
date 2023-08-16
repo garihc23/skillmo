@@ -39,14 +39,24 @@ import {
   titleTag,
   subTopRatedTag,
 } from '../assets/customcss/CustomCss';
-
+import { useCourseStore } from '../store';
 const CourseList = () => {
   const [range, setRange] = useState([0, 100]);
-
+  const { courses, fetchCourses } = useCourseStore();
   const handleRangeChange = (newRange) => {
     setRange(newRange);
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      await fetchCourses();
+    }
+    fetchData();
+  }, []);
+  console.log(
+    `Course`,
+    courses.map((course) => course.id)
+  );
   const trackStyle = { backgroundColor: 'rgba(9, 185, 112, 1)' }; // Custom track color
   const handleStyle = {
     backgroundColor: 'rgba(9, 185, 112, 1)', // Custom handle color
@@ -702,13 +712,7 @@ const CourseList = () => {
             </div>
             <div>
               {/* You can find card code at the bottom */}
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
-              <CourseListCard></CourseListCard>
+              <CourseListCard data={courses}></CourseListCard>
             </div>
             <div></div>
           </Col>

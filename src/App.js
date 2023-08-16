@@ -16,7 +16,7 @@ import PasswordReset from './auth/PasswordReset';
 import ChangePassword from './auth/ChangePassword';
 import { useUserStore } from './store';
 function App() {
-  const [userData, setUserData] = useState(false);
+  const [userData, setUserData] = useState('');
   const currentPath = window.location.pathname;
   const { users, fetchUsers } = useUserStore();
   useEffect(() => {
@@ -31,23 +31,20 @@ function App() {
     <>
       <Router>
         <div>
-          {userData ? (
-            <div>
-              <Route path="/" exact component={Home} />
-              <Route path="/course-list" component={CourseList} />
-              <Route path="/course-list-card" component={CourseListCard} />
-              <Route path="/course-details" component={CourseDetails} />
-              <Route path="/payment" component={Payment} />
-            </div>
-          ) : (
-            <div>
-              <Route path="/" exact component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-              <Route path="/password-reset" component={PasswordReset} />
-              <Route path="/change-password" component={ChangePassword} />
-            </div>
-          )}
+          <div>
+            <Route path="/" exact component={Home} />
+            <Route path="/course-list" component={CourseList} />
+            <Route path="/course-list-card" component={CourseListCard} />
+            <Route path="/course-details" component={CourseDetails} />
+            <Route path="/payment" component={Payment} />
+          </div>
+          <div>
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/password-reset" component={PasswordReset} />
+            <Route path="/change-password" component={ChangePassword} />
+          </div>
         </div>
       </Router>
     </>

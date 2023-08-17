@@ -60,19 +60,26 @@ const CourseDetails = () => {
               >
                 <span>
                   <FaHome />
-                  &nbsp;&nbsp;Home / Course Category / Course Name
+                  &nbsp;&nbsp;Home / {
+                    coursesData.course_category.lang_en
+                  } / {coursesData.title_en}
                 </span>
-                <span>Course Code: ABC XYZ</span>
+                <span>Course Code: {coursesData.id}</span>
               </p>
             </Col>
             <Col xs={12} md={12} lg={12}>
               <Row>
                 <Col xs={12} md={6} lg={6}>
                   <div /* className="d-flex " */>
-                    <span className="category-tag">Category Name</span>
-                    <span className="category-tag">Category Name</span>
                     <span className="category-tag">
-                      Other...
+                      {coursesData.course_category.lang_en}
+                    </span>
+                    <span className="category-tag">
+                      {coursesData.trades_category.lang_en}
+                    </span>
+                    <span className="category-tag">
+                      {coursesData.trades_sub_category.lang_en}
+                      ...
                       <FiInfo />
                     </span>
                   </div>
@@ -95,19 +102,15 @@ const CourseDetails = () => {
                           />
                         </svg>
                       </span>
-                      New Start at:&nbsp;&nbsp;&nbsp;&nbsp;
-                      <strong>20 Feb 2023</strong>
+                      &nbsp;&nbsp; New Start at:&nbsp;&nbsp;&nbsp;&nbsp;
+                      <strong>{coursesData.courseStartsAt}</strong>
                     </div>
                   </div>
                   <div>
                     <h3 className="fw-bold mt-4 mb-4">
-                      Course headline course headline course headline Course
-                      headline course headline
+                      {coursesData.title_en}
                     </h3>
-                    <p>
-                      Short Description of the course here Short Description of
-                      the course here Short Description of the course here
-                    </p>
+                    <p>{coursesData.short_desc_en}</p>
                   </div>
                   <div>
                     <button
@@ -153,13 +156,7 @@ const CourseDetails = () => {
         </div>
         <div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim est laborum{' '}
+            {coursesData.about_course_en}
             <strong style={{ color: 'green' }}>link at the text.</strong>
           </p>
         </div>
@@ -184,10 +181,7 @@ const CourseDetails = () => {
         </div>
         <div>
           <h5 className="fw-bold">Accreditation</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dol
-          </p>
+          <p>{coursesData.accredition}</p>
           <img src={firstPic} alt="pic" />
         </div>
 

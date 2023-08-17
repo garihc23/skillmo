@@ -114,21 +114,18 @@ const CourseListCard = (props) => {
               <Card.Body>
                 <div className=" d-flex pb-3">
                   <span className="category-tag" style={categoryTag}>
-                    Category Name
+                    {course.course_category.lang_en}
                   </span>
                   <span className="category-tag" style={categoryTag}>
-                    Category Name
+                    {course.trades_category.lang_en}
                   </span>
                   <span className="category-tag" style={categoryTag}>
-                    Other...
+                    {course.trades_sub_category.lang_en}
                     <FiInfo />
                   </span>
                 </div>
                 <div>
-                  <h4 className="fw-bold ">
-                    Explore our more popular courses... Explore our more popular
-                    courses...
-                  </h4>
+                  <h4 className="fw-bold ">{course.title_en}</h4>
                 </div>
                 <div className="d-flex align-items-center mt-3">
                   <div>

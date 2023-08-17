@@ -19,14 +19,21 @@ const Login = () => {
     await loginUser(values);
     history.push('/');
     alert('Logged In');
+    window.location.reload();
   };
 
   const handleForgotPasswordClick = () => {
     history.push('/forgot-password');
+    window.location.reload();
   };
 
   const handleSignUpClick = () => {
     history.push('/register');
+    window.location.reload();
+  };
+  const homepage = () => {
+    history.push('/');
+    window.location.reload();
   };
 
   return (
@@ -129,7 +136,7 @@ const Login = () => {
                           marginTop: '25px',
                           cursor: 'pointer',
                         }}
-                        onClick={() => history.push('/')}
+                        onClick={() => homepage()}
                       >
                         <svg
                           fill="#000000"

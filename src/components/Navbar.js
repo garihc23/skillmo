@@ -8,9 +8,11 @@ export const Navbar = () => {
   const history = useHistory();
   const loginPage = () => {
     history.push('/login');
+    window.location.reload();
   };
   const registerPage = () => {
     history.push('/register');
+    window.location.reload();
   };
   return (
     <>

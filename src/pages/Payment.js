@@ -61,12 +61,19 @@ const Payment = () => {
       <Modal
         show={showModal}
         onHide={handleCloseModal}
-        dialogClassName="custom-modal"
+        dialogClassName="custom-payment-modal"
+        className="payment-modal"
+        /* style={{
+          display:'flex',
+          justifyContent:'center',
+          margin:'0px',
+          backgroundColor:'yellow',
+        }} */
       >
         <Modal.Header /* closeButton */ style={{ display: 'none' }}>
           <Modal.Title>{/* Registration To The Course */}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="p-0">
+        <Modal.Body className="p-0 payment-modal-body">
           {/* Place your payment form or content here */}
           <div className="payment-card ">
             <div className="row payment-card-body">

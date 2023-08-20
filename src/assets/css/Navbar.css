@@ -42,3 +42,36 @@ li {
   /* margin-bottom: 20px; */
   background-color: white;
 }
+
+
+/* Media query for small screens */
+@media (max-width: 992px) {
+  .collapse_menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .collapse_menu.show {
+    max-height: 600px; /* Set your desired max height for the expanded menu */
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    border-right: none; /* Remove the right border on small screens */
+  }
+
+  .navbar-toggler {
+    margin: 10px 0;
+  }
+
+  .navbar-collapse {
+    border-top: 1px solid #e7e9eb; /* Add a border above the collapsed menu */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+}

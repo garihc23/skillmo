@@ -112,7 +112,10 @@ const Login = () => {
                       </div>
                     </Col>
 
-                    <Col md={9}>
+                    <Col 
+                      md={9}
+                      xs={9}
+                    >
                       <Button
                         className="reset-link-btn mt-2"
                         type="submit" /* disabled={isSubmitting} */

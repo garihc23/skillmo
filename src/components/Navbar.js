@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../assets/css/Navbar.css';
 import Image from '../assets/images/Layer 1.png';
 import { FaAngleDown, FaFlag, FaHeart, FaShoppingCart } from 'react-icons/fa';
@@ -14,6 +14,11 @@ export const Navbar = () => {
     history.push('/register');
     window.location.reload();
   };
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () =>{
+    setIsNavOpen(!isNavOpen);
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -24,6 +29,7 @@ export const Navbar = () => {
           <button
             className="navbar-toggler"
             type="button"
+            onClick={toggleNav}
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
@@ -32,7 +38,7 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse_menu navbar-collapse">
+          <div className={`collapse_menu navbar-collapse ${isNavOpen ?'show' : ''}`}>
             <ul className="navbar-nav">
               <li class="nav-item ">
                 <Link

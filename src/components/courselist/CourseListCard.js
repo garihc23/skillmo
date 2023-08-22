@@ -57,7 +57,7 @@ const CourseListCard = (props) => {
 
   return (
     <div>
-      {data.map((course, index) => (
+      {data?.map((course, index) => (
         <Card
           key={index}
           className="mt-4"

@@ -328,7 +328,7 @@ const RegFormFormik = () => {
                     More Text Here More Text Here More Text Here More Text Here
                   </p>
                   {/* Customer Review Box */}
-                  {getCurrentReviews().map((review, index) => (
+                  {getCurrentReviews()?.map((review, index) => (
                     <Row className="review-box" key={index}>
                       <Col md={4}>
                         <img

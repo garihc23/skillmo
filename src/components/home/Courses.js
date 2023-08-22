@@ -72,7 +72,7 @@ const Courses = () => {
         <h3 className="fw-bold mt-4 mb-4">Explore our more popular courses</h3>
       </div>
       <div className="row">
-        {currentItems.map((course) => (
+        {currentItems?.map((course) => (
           <div className="col-md-4" key={course.id}>
             <Card>
               <div className="position-relative">

@@ -50,7 +50,7 @@ const Category = () => {
   };
 
   // Calculate current page items
-  const categorys = category.map((item) => item.course_category);
+  const categorys = category?.map((item) => item.course_category);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = category.slice(indexOfFirstItem, indexOfLastItem);
@@ -81,7 +81,7 @@ const Category = () => {
         <h3 className="fw-bold">Browse by popular Courses Categories</h3>
         <div className="mt-5">
           <Row>
-            {currentItems.map((course, index) => (
+            {currentItems?.map((course, index) => (
               <Col key={index} xs={6} md={4} lg={2} className="mb-3">
                 <div
                   className="card"

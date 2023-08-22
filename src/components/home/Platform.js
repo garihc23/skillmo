@@ -9,7 +9,7 @@ import {
   FiInfo,
   FiClock,
 } from 'react-icons/fi';
-import { FaFire, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaFire } from 'react-icons/fa';
 import {
   categoryTag,
   subCertifiedTag,
@@ -17,12 +17,13 @@ import {
   titleTag,
   subTopRatedTag,
 } from '../../assets/customcss/CustomCss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/home/Platform.css';
-import { useNavigate } from 'react-router-dom';
 import { useCourseStore } from '../../store';
-const platform = () => {
+
+function Platform() {
   const navigate = useNavigate();
+
   const handleButtonClick = () => {
     navigate('/course-list');
     // window.location.reload();
@@ -36,7 +37,6 @@ const platform = () => {
     }
     fetchData();
   }, []);
-  console.log('HomeCourse', courses);
 
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
@@ -59,7 +59,7 @@ const platform = () => {
         </h3>
       </div>
       <div className="row my-4">
-        {courses.map((course, index) => (
+        {courses?.map((course, index) => (
           <div className="col-md-3">
             <Card key={index}>
               <div className="position-relative">
@@ -235,6 +235,6 @@ const platform = () => {
       {/* </div> */}
     </div>
   );
-};
+}
 
 export default platform;

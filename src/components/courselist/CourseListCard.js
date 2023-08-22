@@ -44,7 +44,7 @@ const CourseListCard = (props) => {
       pathname: '/course-details',
       state: { coursesData: course }, // Pass courses data in the state object
     });
-    window.location.reload();
+    // window.location.reload();
   };
 
   const paymentPage = (course) => {
@@ -52,7 +52,7 @@ const CourseListCard = (props) => {
       pathname: '/payment',
       state: { paymentData: course }, // Pass courses data in the state object
     });
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

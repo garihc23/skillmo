@@ -7,7 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate('/register');
-    window.location.reload();
+    // window.location.reload();
   };
   return (
     <div>

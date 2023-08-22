@@ -19,21 +19,21 @@ const Login = () => {
     await loginUser(values);
     navigate('/');
     alert('Logged In');
-    window.location.reload();
+    // window.location.reload();
   };
 
   const handleForgotPasswordClick = () => {
     navigate('/forgot-password');
-    window.location.reload();
+    // window.location.reload();
   };
 
   const handleSignUpClick = () => {
     navigate('/register');
-    window.location.reload();
+    // window.location.reload();
   };
   const homepage = () => {
     navigate('/');
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

@@ -10,7 +10,7 @@ const Testimonials = () => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate('/course-list');
-    window.location.reload();
+    // window.location.reload();
   };
   return (
     <>

@@ -47,7 +47,7 @@ const RegFormFormik = () => {
     // toast.success('Create User success!', {
     // position: toast.POSITION.TOP_RIGHT,
     // });
-    window.location.reload();
+    // window.location.reload();
   };
 
   // Pagination

@@ -48,7 +48,7 @@ const Courses = () => {
 
   const handleButtonClick = () => {
     navigate('/course-list');
-    window.location.reload();
+    // window.location.reload();
   };
   // Calculate current page items
   const indexOfLastItem = currentPage * itemsPerPage;

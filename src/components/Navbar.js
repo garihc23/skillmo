@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, {useState} from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> 079843eb0bb0d91b939ec5762547c4ec27834a0e
 import '../assets/css/Navbar.css';
 import Image from '../assets/images/Layer 1.png';
 import { FaAngleDown, FaFlag, FaHeart, FaShoppingCart } from 'react-icons/fa';
@@ -13,23 +9,17 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const loginPage = () => {
     navigate('/login');
-    window.location.reload();
+    // window.location.reload();
   };
   const registerPage = () => {
     navigate('/register');
-    window.location.reload();
+    // window.location.reload();
   };
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-<<<<<<< HEAD
-  const toggleNav = () =>{
-    setIsNavOpen(!isNavOpen);
-  }
-=======
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
->>>>>>> 079843eb0bb0d91b939ec5762547c4ec27834a0e
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -49,15 +39,11 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-<<<<<<< HEAD
-          <div className={`collapse_menu navbar-collapse ${isNavOpen ?'show' : ''}`}>
-=======
           <div
             className={`collapse_menu navbar-collapse ${
               isNavOpen ? 'show' : ''
             }`}
           >
->>>>>>> 079843eb0bb0d91b939ec5762547c4ec27834a0e
             <ul className="navbar-nav">
               <li class="nav-item ">
                 <Link

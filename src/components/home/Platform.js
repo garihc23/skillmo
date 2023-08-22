@@ -237,4 +237,4 @@ function Platform() {
   );
 }
 
-export default platform;
+export default Platform;

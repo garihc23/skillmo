@@ -61,6 +61,34 @@ const CourseList = () => {
     `Course`,
     courses.map((course) => course.id)
   );
+
+  /* filter Section Area */
+  const toggleFilter = ()=>{
+    setFilterVisible(!isFilterVisible);
+  }
+
+  const closeFilterDropdown = () => {
+    setFilterVisible(false);
+  };
+
+  const handleScreenResize = () => {
+    if (window.innerWidth <= 991) {
+      setFilterBtnVisible(true);
+    } else {
+      setFilterBtnVisible(false);
+      setFilterVisible(true);
+    }
+  };
+
+  // Attach the resize event listener when the component mounts
+  React.useEffect(() => {
+    handleScreenResize();
+    window.addEventListener('resize', handleScreenResize);
+    return () => {
+      window.removeEventListener('resize', handleScreenResize);
+    };
+  }, []);
+
   /* Filter Section End */
 
   const handleRangeChange = (newRange) => {
@@ -153,6 +181,9 @@ const CourseList = () => {
 
   return (
     <div>
+      {isFilterVisible && (
+        <div className='background-div'></div>
+      )}
       <Navbar></Navbar>
       <div className="banner-course-list">
         <Container fluid className="p-5">
@@ -194,13 +225,12 @@ const CourseList = () => {
             </Col>
           </Row>
         </Container>
-        <Container className="mt-4">
-          <Row></Row>
-        </Container>
+        
       </div>
+      
       <Container>
         <Row>
-          {/* <div className='filter-btn-div'>
+          <div className='filter-btn-div'>
             {isFilterBtnVisible && (
               <button 
                 className='filter-btn'
@@ -209,22 +239,26 @@ const CourseList = () => {
             )}
           </div>
       {isFilterVisible && (
-        <div className="dropdown filter-dropdown-overlay">
-          <div className='filter-dropdown-content'> */}
-          {/* <button className="close-button" onClick={closeDropdown}>
-              Close
-            </button> */}
-          <Col
-            xs={12}
-            lg={3}
-            className="pt-3 mt-5 "
-            style={{
-              backgroundColor: '#fafafa',
-              borderRadius: '20px',
-              padding: '2.5%',
-              height: '100%',
-            }}
-          >
+        <Col 
+          xs={12}
+          md={12} 
+          lg={3}
+          className="p-4 mt-5 dropdown filter-dropdown-overlay"
+          style={{
+            backgroundColor: '#fafafa',
+            borderRadius: '20px',
+            padding: '2.5%',
+            height: '100%',
+          }}
+        >
+          
+          <div className='filter-dropdown-content'>
+            <div style={{display:'flex', justifyContent:'end'}}>
+              <button className="close-filter-button" onClick={closeFilterDropdown}>
+                X 
+              </button>
+            </div>
+          <div>
             <p
               style={{
                 padding: '5px',
@@ -483,7 +517,7 @@ const CourseList = () => {
               style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
             ></div>
             {/* Trades section start from here */}
-            {/* <div className="d-flex my-4">
+            <div className="d-flex my-4">
               <h5 className="fw-bold" style={{ paddingRight: '65%' }}>
                 Trades
               </h5>
@@ -491,24 +525,24 @@ const CourseList = () => {
                 <FaMinus></FaMinus>
               </div>
             </div>
-            <div
-              className="row"
-              style={{
-                display: 'flex',
-                flexDirection: 'column !important',
-                textAlign: 'left',
-              }}
-            >
-              <Form>
+            <div className='px-4'>
+              <Form
+                className="row"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'left',
+                }}
+              >
                 {trades.map((category, categoryIndex) => (
                   <div
-                    className="col-md-12 trade-category-index"
+                    className="col-md-12 trade-category-index "
                     key={categoryIndex}
                     style={{
                       display: 'flex',
                       flexDirection: 'column ',
                       alignItems: 'left',
-                      marginLeft: '-40px',
+                      /* marginLeft: '-40px', */
                     }}
                   >
                     <div
@@ -571,7 +605,7 @@ const CourseList = () => {
                   </div>
                 ))}
               </Form>
-            </div> */}
+            </div>
 
             <div
               style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
@@ -639,13 +673,13 @@ const CourseList = () => {
                 marginBottom: '30px',
               }}
             ></div>
-          </Col>
-          {/* {</div>
-        </div>}
-      )} */}
+          </div>
+          </div>
+        </Col>
+      )}
 
           {/* Right section */}
-          <Col xs={12} lg={9} style={{ paddingLeft: '0px' }}>
+          <Col xs={12} lg={9} className='right-section' style={{ paddingLeft: '30px' }}>
             <div className="mt-5 ">
               <Row>
                 <div className="col-md-6">

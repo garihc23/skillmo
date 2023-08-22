@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../assets/css/home/Category.css';
 import firstImg from '../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Card, Row, Col, Button, Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { useCategoryStore } from '../../store';
 const Category = () => {
   const history = useHistory();
   const handleMouseEnter = (e) => {
@@ -14,13 +15,22 @@ const Category = () => {
     e.target.style.opacity = '0';
   };
 
+  const { category, fetchCategory } = useCategoryStore();
+  useEffect(() => {
+    async function fetchData() {
+      await fetchCategory();
+    }
+    fetchData();
+  }, []);
+  console.log('category', category)
+
   const itemsPerPage = 6;
   const totalItems = 15; // Replace with your actual total number of courses
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const [currentPage, setCurrentPage] = React.useState(1);
 
   // Generate dummy course data
-  const courses = Array.from({ length: totalItems }, (_, index) => ({
+  const course = Array.from({ length: totalItems }, (_, index) => ({
     id: index + 1,
     title: `Course ${index + 1}`,
     image: `https://example.com/course${index + 1}.jpg`, // Replace with your course image URL
@@ -39,10 +49,13 @@ const Category = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
+
   // Calculate current page items
+  const categorys = category.map((item)=>item.course_category)
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = courses.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = category.slice(indexOfFirstItem, indexOfLastItem);
+  console.log('CategoryData_______',currentItems)
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -69,8 +82,8 @@ const Category = () => {
         <h3 className="fw-bold">Browse by popular Courses Categories</h3>
         <div className="mt-5">
           <Row>
-            {currentItems.map((course) => (
-              <Col key={course.id} xs={6} md={4} lg={2} className="mb-3">
+            {currentItems.map((course, index) => (
+              <Col key={index} xs={6} md={4} lg={2} className="mb-3">
                 <div
                   className="card"
                   style={{
@@ -89,9 +102,8 @@ const Category = () => {
                     }}
                   >
                     <img
-                      src={firstImg}
+                      src={course.image}
                       className="card-img-top"
-                      alt={course.title}
                       style={{
                         objectFit: 'cover',
                         width: '200px',
@@ -116,7 +128,7 @@ const Category = () => {
                           fontSize: '16px',
                         }}
                       >
-                        {course.title}
+                        {course.lang_en}
                       </h5>
                     </div>
                     <div
@@ -135,7 +147,8 @@ const Category = () => {
                           fontFamily: 'Metropolis, sans-serif',
                         }}
                       >
-                        CHOOSE THE COURSE
+                        {/* CHOOSE THE COURSE */}
+                        {course.lang_roa}
                       </h5>
                     </div>
                   </div>

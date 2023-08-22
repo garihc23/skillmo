@@ -38,6 +38,7 @@ const CourseListCard = (props) => {
   const history = useHistory();
   const { data } = props;
   console.log('data', data);
+
   const detailsPage = (course) => {
     history.push({
       pathname: '/course-details',
@@ -45,6 +46,7 @@ const CourseListCard = (props) => {
     });
     window.location.reload();
   };
+
   const paymentPage = (course) => {
     history.push({
       pathname: '/payment',
@@ -52,6 +54,7 @@ const CourseListCard = (props) => {
     });
     window.location.reload();
   };
+
   return (
     <div>
       {data.map((course, index) => (

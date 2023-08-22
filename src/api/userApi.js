@@ -1,15 +1,15 @@
 // src/api/postApi.js
-const API_BASE_URL = 'http://13.127.130.22:8000/api/v1'; // Replace with your API base URL
+const API_BASE_URL = 'http://http://13.234.188.24:8000/api/v1'; // Replace with your API base URL
 
 export const fetchUsers = async () => {
-  const response = await fetch(`http://13.127.130.22:8000/api/v1/user/me`);
+  const response = await fetch(`http://http://13.234.188.24:8000/api/v1/user/me`);
   const data = await response.json();
   return data;
 };
 
 export const createUser = async (postData) => {
   const response = await fetch(
-    `http://13.127.130.22:8000/api/v1/user/register`,
+    `http://http://13.234.188.24:8000/api/v1/user/register`,
     {
       method: 'POST',
       headers: {
@@ -23,7 +23,7 @@ export const createUser = async (postData) => {
 };
 
 export const loginUser = async (postData) => {
-  const response = await fetch(`http://13.127.130.22:8000/api/v1/user/login`, {
+  const response = await fetch(`http://http://13.234.188.24:8000/api/v1/user/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const loginUser = async (postData) => {
 
 export const forgotPassword = async (postData) => {
   const response = await fetch(
-    `http://13.127.130.22:8000/api/v1/user/forgot_password`,
+    `http://http://13.234.188.24:8000/api/v1/user/forgot_password`,
     {
       method: 'POST',
       headers: {
@@ -50,7 +50,7 @@ export const forgotPassword = async (postData) => {
 };
 export const resetPassword = async (postData) => {
   const response = await fetch(
-    `http://13.127.130.22:8000/api/v1/user/reset_password`,
+    `http://http://13.234.188.24:8000/api/v1/user/reset_password`,
     {
       method: 'POST',
       headers: {
@@ -64,7 +64,7 @@ export const resetPassword = async (postData) => {
 };
 export const newPassword = async (postData) => {
   const response = await fetch(
-    `http://13.127.130.22:8000/api/v1/user/resetPassword/:token`,
+    `http://http://13.234.188.24:8000/api/v1/user/resetPassword/:token`,
     {
       method: 'POST',
       headers: {

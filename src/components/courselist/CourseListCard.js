@@ -33,14 +33,14 @@ import {
   titleTag,
   subTopRatedTag,
 } from '../../assets/customcss/CustomCss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const CourseListCard = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { data } = props;
   console.log('data', data);
 
   const detailsPage = (course) => {
-    history.push({
+    navigate({
       pathname: '/course-details',
       state: { coursesData: course }, // Pass courses data in the state object
     });
@@ -48,7 +48,7 @@ const CourseListCard = (props) => {
   };
 
   const paymentPage = (course) => {
-    history.push({
+    navigate({
       pathname: '/payment',
       state: { paymentData: course }, // Pass courses data in the state object
     });

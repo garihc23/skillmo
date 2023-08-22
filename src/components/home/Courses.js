@@ -18,9 +18,9 @@ import {
   topRatedTag,
 } from '../../assets/customcss/CustomCss';
 import '../../assets/css/home/Courses.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Courses = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const itemsPerPage = 3;
   const totalItems = 5; // Replace with your actual total number of courses
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -47,7 +47,7 @@ const Courses = () => {
   };
 
   const handleButtonClick = () => {
-    history.push('/course-list');
+    navigate('/course-list');
     window.location.reload();
   };
   // Calculate current page items

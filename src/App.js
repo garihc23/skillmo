@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Routes from react-router-dom
 import Home from './pages/Home';
 import CourseDetails from './pages/CourseDetails';
 import Navbar from './components/Navbar';
@@ -15,6 +14,7 @@ import ForgotPassword from './auth/ForgotPassword';
 import PasswordReset from './auth/PasswordReset';
 import ChangePassword from './auth/ChangePassword';
 import { useUserStore } from './store';
+
 function App() {
   const [userData, setUserData] = useState('');
   const currentPath = window.location.pathname;
@@ -27,20 +27,24 @@ function App() {
   }, []);
 
   console.log('use', userData);
+
   return (
     <>
       <Router>
-        <Route path="/" exact component={Home} />
-        <Route path="/course-list" component={CourseList} />
-        <Route path="/course-list-card" component={CourseListCard} />
-        <Route path="/course-details" component={CourseDetails} />
-        <Route path="/payment" component={Payment} />
+        {/* Use Routes instead of Route */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/course-list" element={<CourseList />} />
+          <Route path="/course-list-card" element={<CourseListCard />} />
+          <Route path="/course-details" element={<CourseDetails />} />
+          <Route path="/payment" element={<Payment />} />
 
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/forgot-password" component={ForgotPassword} />
-        <Route path="/password-reset" component={PasswordReset} />
-        <Route path="/change-password" component={ChangePassword} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/password-reset" element={<PasswordReset />} />
+          <Route path="/change-password" element={<ChangePassword />} />
+        </Routes>
       </Router>
     </>
   );

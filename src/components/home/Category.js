@@ -3,10 +3,10 @@ import '../../assets/css/home/Category.css';
 import firstImg from '../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Card, Row, Col, Button, Container } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCategoryStore } from '../../store';
 const Category = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleMouseEnter = (e) => {
     e.target.style.opacity = '1';
   };
@@ -22,7 +22,7 @@ const Category = () => {
     }
     fetchData();
   }, []);
-  console.log('category', category)
+  console.log('category', category);
 
   const itemsPerPage = 6;
   const totalItems = 15; // Replace with your actual total number of courses
@@ -49,20 +49,19 @@ const Category = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
-
   // Calculate current page items
-  const categorys = category.map((item)=>item.course_category)
+  const categorys = category.map((item) => item.course_category);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = categorys.slice(indexOfFirstItem, indexOfLastItem);
-  console.log('CategoryData_______',currentItems)
+  console.log('CategoryData_______', currentItems);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   const handleButtonClick = () => {
-    history.push('/course-list');
+    navigate('/course-list');
     window.location.reload();
   };
   return (

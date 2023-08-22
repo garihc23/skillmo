@@ -2,11 +2,11 @@ import React from 'react';
 import pic101 from '../../assets/images/pic101.png';
 import { Row, Col, Button } from 'react-bootstrap';
 import '../../assets/css/home/Register.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleButtonClick = () => {
-    history.push('/register');
+    navigate('/register');
     window.location.reload();
   };
   return (

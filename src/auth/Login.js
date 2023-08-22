@@ -4,10 +4,10 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 // import validationSchema from '../components/regForm/validationSchema';
 import logo from '../assets/images/Layer 1 (1).png';
 import './login.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '../store';
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const initialValues = {
     email_id: '',
     password: '',
@@ -17,22 +17,22 @@ const Login = () => {
   const onSubmit = async (values) => {
     console.log('Form submitted:', values);
     await loginUser(values);
-    history.push('/');
+    navigate('/');
     alert('Logged In');
     window.location.reload();
   };
 
   const handleForgotPasswordClick = () => {
-    history.push('/forgot-password');
+    navigate('/forgot-password');
     window.location.reload();
   };
 
   const handleSignUpClick = () => {
-    history.push('/register');
+    navigate('/register');
     window.location.reload();
   };
   const homepage = () => {
-    history.push('/');
+    navigate('/');
     window.location.reload();
   };
 
@@ -112,10 +112,7 @@ const Login = () => {
                       </div>
                     </Col>
 
-                    <Col 
-                      md={9}
-                      xs={9}
-                    >
+                    <Col md={9} xs={9}>
                       <Button
                         className="reset-link-btn mt-2"
                         type="submit" /* disabled={isSubmitting} */

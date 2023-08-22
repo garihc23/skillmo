@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
-import image from "../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png";
+import React, { useEffect } from 'react';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import image from '../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png';
 import {
   FiCheckCircle,
   FiStar,
@@ -8,23 +8,23 @@ import {
   FiCalendar,
   FiInfo,
   FiClock,
-} from "react-icons/fi";
-import { FaFire, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+} from 'react-icons/fi';
+import { FaFire, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {
   categoryTag,
   subCertifiedTag,
   subNewTag,
   titleTag,
   subTopRatedTag,
-} from "../../assets/customcss/CustomCss";
-import { Link } from "react-router-dom";
-import "../../assets/css/home/Platform.css";
-import { useHistory } from "react-router-dom";
-import { useCourseStore } from "../../store";
+} from '../../assets/customcss/CustomCss';
+import { Link } from 'react-router-dom';
+import '../../assets/css/home/Platform.css';
+import { useNavigate } from 'react-router-dom';
+import { useCourseStore } from '../../store';
 const platform = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleButtonClick = () => {
-    history.push("/course-list");
+    navigate('/course-list');
     window.location.reload();
   };
 
@@ -36,38 +36,37 @@ const platform = () => {
     }
     fetchData();
   }, []);
-  console.log("HomeCourse", courses);
+  console.log('HomeCourse', courses);
 
   return (
-    <div className="container " style={{ paddingTop: "50px" }}>
+    <div className="container " style={{ paddingTop: '50px' }}>
       <h6
         style={{
-          color: "#39128C",
-          fontFamily: "Metropolis, sans-serif",
-          fontSize: "16px",
-          lineHeight: "28px",
+          color: '#39128C',
+          fontFamily: 'Metropolis, sans-serif',
+          fontSize: '16px',
+          lineHeight: '28px',
           fontWeight: 600,
-          letterSpacing: "4px",
+          letterSpacing: '4px',
         }}
       >
         New on the platform
       </h6>
       <div>
-        <h3 className="fw-bold mt-4 mb-4" style={{ width: "60%" }}>
+        <h3 className="fw-bold mt-4 mb-4" style={{ width: '60%' }}>
           Choose from more then 100 000 online courses about construction from
           well-known industry leaders
         </h3>
       </div>
       <div className="row my-4">
-      {courses.map((course, index) => (
-        <div className="col-md-3">
-          
+        {courses.map((course, index) => (
+          <div className="col-md-3">
             <Card key={index}>
               <div className="position-relative">
                 <Card.Img
                   src={image}
                   alt="Card image"
-                  style={{ backgroundColor: "gray" }}
+                  style={{ backgroundColor: 'gray' }}
                 />
                 <div>
                   <p
@@ -76,7 +75,7 @@ const platform = () => {
                     style={subNewTag}
                   >
                     <FaFire className="me-1" />
-                    {"  "}
+                    {'  '}
                     New
                   </p>
                   <p
@@ -85,7 +84,7 @@ const platform = () => {
                     style={subCertifiedTag}
                   >
                     <FiCheckCircle className="me-1" />
-                    {"  "} Certified
+                    {'  '} Certified
                   </p>
                   <p
                     className="position-absolute top-0  my-3 px-2 py-1"
@@ -93,7 +92,7 @@ const platform = () => {
                     style={subTopRatedTag}
                   >
                     <FiStar className="me-1" />
-                    {"  "}
+                    {'  '}
                     Top Rated
                   </p>
                 </div>
@@ -103,7 +102,7 @@ const platform = () => {
                     variant="danger"
                     style={titleTag}
                   >
-                    facebook{" "}
+                    facebook{' '}
                   </h5>
                 </div>
               </div>
@@ -125,9 +124,9 @@ const platform = () => {
                 <div className="d-flex justify-content-between align-items-center mt-3">
                   <div>
                     <span className="me-2">
-                      <FiCalendar style={{ color: "#09B970" }} />
+                      <FiCalendar style={{ color: '#09B970' }} />
                     </span>
-                    <span style={{ fontSize: "14px" }}>Starting:</span>
+                    <span style={{ fontSize: '14px' }}>Starting:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>{course.courseStartsAt}</strong>
                   </div>
@@ -135,9 +134,9 @@ const platform = () => {
                 <div className="d-flex justify-content-between align-items-center mt-3">
                   <div>
                     <span className="me-2">
-                      <FiClock style={{ color: "#09B970" }} />
+                      <FiClock style={{ color: '#09B970' }} />
                     </span>
-                    <span style={{ fontSize: "14px" }}>Schedule:</span>
+                    <span style={{ fontSize: '14px' }}>Schedule:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>{course.schedule}</strong>
                   </div>
@@ -145,7 +144,7 @@ const platform = () => {
                 <div className="d-flex align-items-center">
                   <h4
                     className="fw-bold mt-4 mb-4"
-                    style={{ color: "#09B970" }}
+                    style={{ color: '#09B970' }}
                   >
                     ${course.total_price}
                   </h4>
@@ -169,12 +168,12 @@ const platform = () => {
                       className="w-100"
                       variant="info"
                       style={{
-                        background: "#fff",
-                        padding: "10px 12px",
-                        fontWeight: "700",
-                        fontSize: "14px",
-                        borderColor: "#f1f1fe",
-                        shadowColor: "#000",
+                        background: '#fff',
+                        padding: '10px 12px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        borderColor: '#f1f1fe',
+                        shadowColor: '#000',
                         shadowOffset: {
                           width: 0,
                           height: 2,
@@ -190,24 +189,21 @@ const platform = () => {
                 </Row>
               </Card.Body>
             </Card>
-          
-        </div>
+          </div>
         ))}
       </div>
 
-      
-      
       <div className="d-flex justify-content-between align-items-center mt-3 mb-5">
         <button
           className="btn "
           style={{
-            border: "1px solid green",
-            borderColor: "#04C977",
-            borderRadius: "10px",
-            backgroundColor: "transparent",
-            padding: "12px 20px",
-            fontSize: "14px",
-            fontWeight: "bold",
+            border: '1px solid green',
+            borderColor: '#04C977',
+            borderRadius: '10px',
+            backgroundColor: 'transparent',
+            padding: '12px 20px',
+            fontSize: '14px',
+            fontWeight: 'bold',
           }}
           onClick={handleButtonClick}
         >

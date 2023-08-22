@@ -2,7 +2,9 @@
 const API_BASE_URL = 'http://http://13.234.188.24:8000/api/v1'; // Replace with your API base URL
 
 export const fetchUsers = async () => {
-  const response = await fetch(`http://http://13.234.188.24:8000/api/v1/user/me`);
+  const response = await fetch(
+    `http://http://13.234.188.24:8000/api/v1/user/me`
+  );
   const data = await response.json();
   return data;
 };
@@ -23,13 +25,16 @@ export const createUser = async (postData) => {
 };
 
 export const loginUser = async (postData) => {
-  const response = await fetch(`http://http://13.234.188.24:8000/api/v1/user/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  });
+  const response = await fetch(
+    `http://http://13.234.188.24:8000/api/v1/user/login`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    }
+  );
   const data = await response.json();
   return data;
 };

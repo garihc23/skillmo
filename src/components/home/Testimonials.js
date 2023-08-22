@@ -5,11 +5,11 @@ import pic from '../../assets/images/Group 1000002457.png';
 import pic1 from '../../assets/images/Group 1000002461.png';
 import pic2 from '../../assets/images/Group 1000002462.png';
 import '../../assets/css/home/Testimonials.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Testimonials = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleButtonClick = () => {
-    history.push('/course-list');
+    navigate('/course-list');
     window.location.reload();
   };
   return (

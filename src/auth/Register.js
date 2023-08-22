@@ -21,10 +21,10 @@ import rightArrow from '../assets/images/arrow-to-right.svg';
 import { RiAlignJustify } from 'react-icons/ri';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '../store';
 const RegFormFormik = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { users, fetchUsers, addUser } = useUserStore();
   // Initial form values
   const initialValues = {
@@ -43,7 +43,7 @@ const RegFormFormik = () => {
     console.log('Form submitted:', values);
     await addUser(values);
     alert('Form submitted successfully');
-    history.push('/');
+    navigate('/');
     // toast.success('Create User success!', {
     // position: toast.POSITION.TOP_RIGHT,
     // });
@@ -289,7 +289,7 @@ const RegFormFormik = () => {
                             marginTop: '25px',
                             cursor: 'pointer',
                           }}
-                          onClick={() => history.push('/')}
+                          onClick={() => navigate('/')}
                         >
                           <svg
                             fill="#000000"

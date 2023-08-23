@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState, useEffect } from 'react';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import {
   FiCheckCircle,
   FiStar,
@@ -9,24 +9,24 @@ import {
   FiCalendar,
   FiInfo,
   FiClock,
-} from "react-icons/fi";
-import { FaFire, FaCaretRight, FaHome } from "react-icons/fa";
-import firstPic from "../assets/images/Rectangle 103045.png";
-import headerPic from "../assets/images/Rectangle 103044.png";
-import image from "../assets/images/medium-shot-engineer-architect-looking-camera 1.png";
+} from 'react-icons/fi';
+import { FaFire, FaCaretRight, FaHome } from 'react-icons/fa';
+import firstPic from '../assets/images/Rectangle 103045.png';
+import headerPic from '../assets/images/Rectangle 103044.png';
+import image from '../assets/images/medium-shot-engineer-architect-looking-camera 1.png';
 import {
   categoryTag,
   subCertifiedTag,
   subNewTag,
   titleTag,
   subTopRatedTag,
-} from "../assets/customcss/CustomCss";
-import "../assets/css/CourseDetails.css";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import { useLocation } from "react-router-dom";
+} from '../assets/customcss/CustomCss';
+import '../assets/css/CourseDetails.css';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { useLocation } from 'react-router-dom';
 import { useCourseStore } from '../store';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 const CourseDetails = () => {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(null);
@@ -43,7 +43,7 @@ const CourseDetails = () => {
     setEndDate(date);
   };
 
-  console.log("database", coursesData);
+  console.log('database', coursesData);
 
   const { courses, fetchCourses } = useCourseStore();
 
@@ -56,12 +56,11 @@ const CourseDetails = () => {
 
   return (
     <div /* style={{ marginTop: '50px' }} */>
-
       <div /* style={{ marginTop: '50px' }} */>
         <Navbar></Navbar>
         <div
           className="py-4"
-          style={{ backgroundColor: "rgba(241, 243, 249, 1)" }}
+          style={{ backgroundColor: 'rgba(241, 243, 249, 1)' }}
         >
           <div className="container">
             <Row>
@@ -69,9 +68,9 @@ const CourseDetails = () => {
                 <p
                   className="d-flex justify-content-between"
                   style={{
-                    color: "gray",
-                    letterSpacing: "2px",
-                    fontSize: "12px",
+                    color: 'gray',
+                    letterSpacing: '2px',
+                    fontSize: '12px',
                     fontWeight: 600,
                   }}
                 >
@@ -134,9 +133,9 @@ const CourseDetails = () => {
                         className="btn m-1 px-3 py-2 reg-course-btn"
                         type="submit"
                         style={{
-                          background: "rgba(4, 201, 119, 1)",
-                          fontSize: "14px",
-                          color: "#fafafa",
+                          background: 'rgba(4, 201, 119, 1)',
+                          fontSize: '14px',
+                          color: '#fafafa',
                         }}
                       >
                         REGISTER TO THE COURSE
@@ -147,7 +146,7 @@ const CourseDetails = () => {
                     <img
                       src={headerPic}
                       alt="Photo"
-                      style={{ width: "100%", height: "auto" }}
+                      style={{ width: '100%', height: 'auto' }}
                     />
                   </Col>
                 </Row>
@@ -156,14 +155,14 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        <div className="container" style={{ paddingTop: "50px" }}>
+        <div className="container" style={{ paddingTop: '50px' }}>
           <h6
             style={{
-              color: "#39128C",
-              fontFamily: "Metropolis,sans-serif",
-              fontSize: "16px",
+              color: '#39128C',
+              fontFamily: 'Metropolis,sans-serif',
+              fontSize: '16px',
               fontWeight: 600,
-              letterSpacing: "7px",
+              letterSpacing: '7px',
             }}
           >
             Overview
@@ -174,7 +173,7 @@ const CourseDetails = () => {
           <div>
             <p>
               {coursesData.about_course_en}
-              <strong style={{ color: "green" }}>link at the text.</strong>
+              <strong style={{ color: 'green' }}>link at the text.</strong>
             </p>
           </div>
           <div>
@@ -183,15 +182,15 @@ const CourseDetails = () => {
               <ul>
                 <li className="green-bullet">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt{" "}
+                  do eiusmod tempor incididunt{' '}
                 </li>
                 <li className="green-bullet">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt{" "}
+                  do eiusmod tempor incididunt{' '}
                 </li>
                 <li className="green-bullet">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt{" "}
+                  do eiusmod tempor incididunt{' '}
                 </li>
               </ul>
             </div>
@@ -232,7 +231,7 @@ const CourseDetails = () => {
             <div className="container my-4">
               <table className="table">
                 <thead>
-                  <tr style={{ backgroundColor: "black" }}>
+                  <tr style={{ backgroundColor: 'black' }}>
                     <th scope="col">#</th>
                     <th scope="col">Date</th>
                     <th scope="col">Location</th>
@@ -283,7 +282,7 @@ const CourseDetails = () => {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <h6 className="mt-4 fw-bold" style={{ color: "green" }}>
+            <h6 className="mt-4 fw-bold" style={{ color: 'green' }}>
               MORE DETAILS <FaCaretRight />
             </h6>
           </div>
@@ -291,19 +290,19 @@ const CourseDetails = () => {
 
         <Row
           className="wrapper mt-5 row get-advice-banner"
-          style={{ display: "flex" }}
+          style={{ display: 'flex' }}
         >
           <Col
             className="get-advice-banner-text"
             xs={12}
             md={12}
             lg={7}
-            style={{ padding: "6%" }}
+            style={{ padding: '6%' }}
           >
-            <h4 style={{ color: "#fafafa" }}>
+            <h4 style={{ color: '#fafafa' }}>
               Need a consultation? Speak with an education advisor.
             </h4>
-            <p style={{ color: "#fafafa" }}>
+            <p style={{ color: '#fafafa' }}>
               Our education advisors are here to answer your questions.
             </p>
           </Col>
@@ -312,21 +311,21 @@ const CourseDetails = () => {
             md={12}
             lg={5}
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <button
               className="button get-advice-banner-btn"
               style={{
-                backgroundColor: "#10D382",
-                color: "#fafafa",
+                backgroundColor: '#10D382',
+                color: '#fafafa',
                 fontWeight: 700,
-                fontSize: "16px",
-                padding: "15px 25px",
-                border: "none",
-                borderRadius: "8px",
+                fontSize: '16px',
+                padding: '15px 25px',
+                border: 'none',
+                borderRadius: '8px',
               }}
             >
               GET THE ADVICE
@@ -338,11 +337,11 @@ const CourseDetails = () => {
           <div className="mt-5 mb-5">
             <h6
               style={{
-                color: "#39128C",
-                fontFamily: "Metropolis,sans-serif",
-                fontSize: "16px",
+                color: '#39128C',
+                fontFamily: 'Metropolis,sans-serif',
+                fontSize: '16px',
                 fontWeight: 600,
-                letterSpacing: "7px",
+                letterSpacing: '7px',
               }}
             >
               Relevant courses
@@ -350,153 +349,153 @@ const CourseDetails = () => {
             <h3 className="fw-bold mt-3">You may also be interested in</h3>
           </div>
           <div className="row my-4">
-        {courses?.map((course, index) => (
-          <div className="col-md-3">
-            <Card key={index}>
-              <div className="position-relative">
-                <Card.Img
-                  src={image}
-                  alt="Card image"
-                  style={{ backgroundColor: 'gray' }}
-                />
-                <div>
-                  {course.is_new && (
-                    <p
-                      className="position-absolute top-0  my-3 px-2 py-1"
-                      variant="danger"
-                      style={subNewTag}
-                    >
-                      <FaFire className="me-1" />
-                      {'  '}
-                      New
-                    </p>
-                  )}
+            {courses?.map((course, index) => (
+              <div className="col-md-3">
+                <Card key={index}>
+                  <div className="position-relative">
+                    <Card.Img
+                      src={image}
+                      alt="Card image"
+                      style={{ backgroundColor: 'gray' }}
+                    />
+                    <div>
+                      {course.is_new && (
+                        <p
+                          className="position-absolute top-0  my-3 px-2 py-1"
+                          variant="danger"
+                          style={subNewTag}
+                        >
+                          <FaFire className="me-1" />
+                          {'  '}
+                          New
+                        </p>
+                      )}
 
-                  {course.is_certified && (
-                    <p
-                      className="position-absolute top-0  m-3 px-2 py-1"
-                      variant="success"
-                      style={subCertifiedTag}
-                    >
-                      <FiCheckCircle className="me-1" />
-                      {'  '} Certified
-                    </p>
-                  )}
-                  {course.is_top_rated && (
-                    <p
-                      className="position-absolute top-0  my-3 px-2 py-1"
-                      variant="warning"
-                      style={subTopRatedTag}
-                    >
-                      <FiStar className="me-1" />
-                      {'  '}
-                      Top Rated
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <h5
-                    className="position-absolute mb-n3 p-4 title-tag"
-                    variant="danger"
-                    style={titleTag}
-                  >
-                    {course.title_en}
-                  </h5>
-                </div>
+                      {course.is_certified && (
+                        <p
+                          className="position-absolute top-0  m-3 px-2 py-1"
+                          variant="success"
+                          style={subCertifiedTag}
+                        >
+                          <FiCheckCircle className="me-1" />
+                          {'  '} Certified
+                        </p>
+                      )}
+                      {course.is_top_rated && (
+                        <p
+                          className="position-absolute top-0  my-3 px-2 py-1"
+                          variant="warning"
+                          style={subTopRatedTag}
+                        >
+                          <FiStar className="me-1" />
+                          {'  '}
+                          Top Rated
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <h5
+                        className="position-absolute mb-n3 p-4 title-tag"
+                        variant="danger"
+                        style={titleTag}
+                      >
+                        {course.title_en}
+                      </h5>
+                    </div>
+                  </div>
+                  <Card.Body>
+                    <div className=" d-flex ">
+                      <span style={categoryTag}>
+                        {course.course_category.lang_en}
+                      </span>
+                      <span style={categoryTag}>
+                        {course.trades_category.lang_en}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="fw-bold mt-4 mb-4">
+                        {/* Explore our more popular courses... */}
+                        {course.short_desc_en.slice(0, 35) + '...'}
+                      </h4>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <div>
+                        <span className="me-2">
+                          <FiCalendar style={{ color: '#09B970' }} />
+                        </span>
+                        <span style={{ fontSize: '14px' }}>Starting:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>{course.courseStartsAt}</strong>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <div>
+                        <span className="me-2">
+                          <FiClock style={{ color: '#09B970' }} />
+                        </span>
+                        <span style={{ fontSize: '14px' }}>Schedule:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>{course.schedule}</strong>
+                      </div>
+                    </div>
+                    <div className="d-flex align-items-center">
+                      <h4
+                        className="fw-bold mt-4 mb-4"
+                        style={{ color: '#09B970' }}
+                      >
+                        ${course.total_price}
+                      </h4>
+                      <span className="ms-3 text-secondary">
+                        × {course.payment_options} Payments
+                      </span>
+                      <span className="ms-2">
+                        <FiInfo />
+                      </span>
+                    </div>
+
+                    <Row>
+                      <Col>
+                        <Button className="w-100 add-cart" variant="success">
+                          <FiShoppingCart className="me-1" />
+                          Cart
+                        </Button>
+                      </Col>
+                      <Col>
+                        <Button
+                          className="w-100"
+                          variant="info"
+                          style={{
+                            background: '#fff',
+                            padding: '10px 12px',
+                            fontWeight: '700',
+                            fontSize: '14px',
+                            borderColor: '#f1f1fe',
+                            shadowColor: '#000',
+                            shadowOffset: {
+                              width: 0,
+                              height: 2,
+                            },
+                            shadowOpacity: 0.4,
+                            shadowRadius: 2,
+                          }}
+                          onClick={() => {
+                            navigate('/course-details', {
+                              state: {
+                                coursesData: course,
+                              },
+                            });
+                          }}
+                        >
+                          {/* <FiInfo className="me-1" /> */}
+                          More Info
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
               </div>
-              <Card.Body>
-                <div className=" d-flex ">
-                  <span style={categoryTag}>
-                    {course.course_category.lang_en}
-                  </span>
-                  <span style={categoryTag}>
-                    {course.trades_category.lang_en}
-                  </span>
-                </div>
-                <div>
-                  <h4 className="fw-bold mt-4 mb-4">
-                    {/* Explore our more popular courses... */}
-                    {course.short_desc_en}
-                  </h4>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div>
-                    <span className="me-2">
-                      <FiCalendar style={{ color: '#09B970' }} />
-                    </span>
-                    <span style={{ fontSize: '14px' }}>Starting:</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <strong>{course.courseStartsAt}</strong>
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div>
-                    <span className="me-2">
-                      <FiClock style={{ color: '#09B970' }} />
-                    </span>
-                    <span style={{ fontSize: '14px' }}>Schedule:</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <strong>{course.schedule}</strong>
-                  </div>
-                </div>
-                <div className="d-flex align-items-center">
-                  <h4
-                    className="fw-bold mt-4 mb-4"
-                    style={{ color: '#09B970' }}
-                  >
-                    ${course.total_price}
-                  </h4>
-                  <span className="ms-3 text-secondary">
-                    × {course.payment_options} Payments
-                  </span>
-                  <span className="ms-2">
-                    <FiInfo />
-                  </span>
-                </div>
-
-                <Row>
-                  <Col>
-                    <Button className="w-100 add-cart" variant="success">
-                      <FiShoppingCart className="me-1" />
-                      Cart
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button
-                      className="w-100"
-                      variant="info"
-                      style={{
-                        background: '#fff',
-                        padding: '10px 12px',
-                        fontWeight: '700',
-                        fontSize: '14px',
-                        borderColor: '#f1f1fe',
-                        shadowColor: '#000',
-                        shadowOffset: {
-                          width: 0,
-                          height: 2,
-                        },
-                        shadowOpacity: 0.4,
-                        shadowRadius: 2,
-                      }}
-                      onClick={() => {
-                        navigate("/course-details", {
-                          state: {
-                            coursesData: course,
-                          },
-                        });
-                      }}
-                    >
-                      {/* <FiInfo className="me-1" /> */}
-                      More Info
-                    </Button>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
+            ))}
           </div>
-        ))}
-      </div>
         </div>
         <Footer></Footer>
       </div>

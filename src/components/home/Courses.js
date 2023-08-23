@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import image from '../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png';
 import {
@@ -143,13 +143,17 @@ const Courses = () => {
               </div>
               <Card.Body>
                 <div className=" d-flex ">
-                  <span style={categoryTag}>{course.course_category.lang_en}</span>
-                  <span style={categoryTag}>{course.trades_category.lang_en}</span>
+                  <span style={categoryTag}>
+                    {course.course_category.lang_en}
+                  </span>
+                  <span style={categoryTag}>
+                    {course.trades_category.lang_en}
+                  </span>
                 </div>
                 <div>
                   <h4 className="fw-bold mt-4 mb-4">
                     {/* Explore our more popular courses... */}
-                    {course.short_desc_en}
+                    {course.short_desc_en.slice(0, 35) + '...'}
                   </h4>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -179,7 +183,9 @@ const Courses = () => {
                   >
                     $60
                   </h4>
-                  <span className="ms-3 text-secondary">× {course.payment_options} Payments</span>
+                  <span className="ms-3 text-secondary">
+                    × {course.payment_options} Payments
+                  </span>
                   <span className="ms-2">
                     <FiInfo />
                   </span>
@@ -211,7 +217,7 @@ const Courses = () => {
                         shadowRadius: 2,
                       }}
                       onClick={() => {
-                        navigate("/course-details", {
+                        navigate('/course-details', {
                           state: {
                             coursesData: course,
                           },

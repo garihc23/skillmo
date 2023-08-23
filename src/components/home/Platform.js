@@ -126,7 +126,7 @@ function Platform() {
                 <div>
                   <h4 className="fw-bold mt-4 mb-4">
                     {/* Explore our more popular courses... */}
-                    {course.short_desc_en}
+                    {course.short_desc_en.slice(0, 35) + '...'}
                   </h4>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -190,7 +190,7 @@ function Platform() {
                         shadowRadius: 2,
                       }}
                       onClick={() => {
-                        navigate("/course-details", {
+                        navigate('/course-details', {
                           state: {
                             coursesData: course,
                           },

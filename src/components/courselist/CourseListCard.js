@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Form,
   Row,
@@ -8,8 +8,8 @@ import {
   Button,
   Container,
   Card,
-} from 'react-bootstrap';
-import image from '../../assets/images/students-walk-downstairsdd-with-books-library.png';
+} from "react-bootstrap";
+import image from "../../assets/images/students-walk-downstairsdd-with-books-library.png";
 import {
   FiCheckCircle,
   FiStar,
@@ -17,7 +17,7 @@ import {
   FiCalendar,
   FiInfo,
   FiClock,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 import {
   FaFire,
   FaChevronLeft,
@@ -25,35 +25,35 @@ import {
   FaMinus,
   FaMapMarkerAlt,
   FaBullseye,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 import {
   categoryTag,
   subCertifiedTag,
   subNewTag,
   titleTag,
   subTopRatedTag,
-} from '../../assets/customcss/CustomCss';
-import { useNavigate } from 'react-router-dom';
+} from "../../assets/customcss/CustomCss";
+import { useNavigate } from "react-router-dom";
 const CourseListCard = (props) => {
   const navigate = useNavigate();
   const { data } = props;
-  console.log('data', data);
+  console.log("Listdata", data);
 
-  const detailsPage = (course) => {
-    navigate({
-      pathname: '/course-details',
-      state: { coursesData: course }, // Pass courses data in the state object
-    });
-    // window.location.reload();
-  };
+  // const detailsPage = (course) => {
+  //   navigate({
+  //     pathname: '/course-details',
+  //     state: { coursesData: course }, // Pass courses data in the state object
+  //   });
+  //   // window.location.reload();
+  // };
 
-  const paymentPage = (course) => {
-    navigate({
-      pathname: '/payment',
-      state: { paymentData: course }, // Pass courses data in the state object
-    });
-    // window.location.reload();
-  };
+  // const paymentPage = (course) => {
+  //   navigate({
+  //     pathname: '/payment',
+  //     state: { paymentData: course }, // Pass courses data in the state object
+  //   });
+  //   // window.location.reload();
+  // };
 
   return (
     <div>
@@ -62,8 +62,8 @@ const CourseListCard = (props) => {
           key={index}
           className="mt-4"
           style={{
-            borderColor: 'white',
-            marginBottom: '30px',
+            borderColor: "white",
+            marginBottom: "30px",
           }}
         >
           <Row className="g-0">
@@ -72,7 +72,7 @@ const CourseListCard = (props) => {
                 <Card.Img
                   src={course.course_image}
                   alt="Card image"
-                  style={{ backgroundColor: 'gray', height: '35vh' }}
+                  style={{ backgroundColor: "gray", height: "35vh" }}
                 />
                 <div>
                   {course.is_new && (
@@ -82,7 +82,7 @@ const CourseListCard = (props) => {
                       style={subNewTag}
                     >
                       <FaFire className="me-1" />
-                      {'  '}
+                      {"  "}
                       New
                     </p>
                   )}
@@ -93,7 +93,7 @@ const CourseListCard = (props) => {
                       style={subCertifiedTag}
                     >
                       <FiCheckCircle className="me-1" />
-                      {'  '} Certified
+                      {"  "} Certified
                     </p>
                   )}
                   {course.is_top_rated && (
@@ -103,7 +103,7 @@ const CourseListCard = (props) => {
                       style={subTopRatedTag}
                     >
                       <FiStar className="me-1" />
-                      {'  '}
+                      {"  "}
                       Top Rated
                     </p>
                   )}
@@ -139,14 +139,14 @@ const CourseListCard = (props) => {
                 <div className="d-flex align-items-center mt-3">
                   <div>
                     <span className="me-2">
-                      <FiCalendar style={{ color: '#09B970' }} />
+                      <FiCalendar style={{ color: "#09B970" }} />
                     </span>
                     Starting:&nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>{course.courseStartsAt}</strong>
                   </div>
                   <div className="mx-3">
                     <span className="me-2">
-                      <FiClock style={{ color: '#09B970' }} />
+                      <FiClock style={{ color: "#09B970" }} />
                     </span>
                     Schedule:&nbsp;&nbsp;&nbsp;&nbsp;
                     <strong>{course.schedule}</strong>
@@ -157,7 +157,7 @@ const CourseListCard = (props) => {
                     <div className="d-flex align-items-center mt-4">
                       <h4
                         className="fw-bold "
-                        style={{ color: '#09B970', fontSize: '30px' }}
+                        style={{ color: "#09B970", fontSize: "30px" }}
                       >
                         ${course.total_price}
                       </h4>
@@ -176,14 +176,20 @@ const CourseListCard = (props) => {
                           className="w-100 btn-lg "
                           variant="info"
                           style={{
-                            background: '#fff',
-                            fontSize: '16px',
+                            background: "#fff",
+                            fontSize: "16px",
                             fontWeight: 650,
-                            padding: '12px 25px 12px 25px',
-                            borderColor: '#1B17201A',
-                            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+                            padding: "12px 25px 12px 25px",
+                            borderColor: "#1B17201A",
+                            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                           }}
-                          onClick={() => detailsPage(course)}
+                          onClick={() => {
+                            navigate("/course-details", {
+                              state: {
+                                coursesData: course,
+                              },
+                            });
+                          }}
                         >
                           {/* <FiInfo className="me-2" /> */}
                           More Info
@@ -194,11 +200,17 @@ const CourseListCard = (props) => {
                           className="w-100 btn-lg px-4"
                           variant="success"
                           style={{
-                            background: 'rgba(4, 201, 119, 1)',
-                            padding: '10px',
-                            fontSize: '18px',
+                            background: "rgba(4, 201, 119, 1)",
+                            padding: "10px",
+                            fontSize: "18px",
                           }}
-                          onClick={() => paymentPage(course)}
+                          onClick={() => {
+                            navigate("/payment", {
+                              state: {
+                                paymentData: course,
+                              },
+                            });
+                          }}
                         >
                           <FiShoppingCart className="me-2" />
                           Buy Now

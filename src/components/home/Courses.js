@@ -210,6 +210,13 @@ const Courses = () => {
                         shadowOpacity: 0.4,
                         shadowRadius: 2,
                       }}
+                      onClick={() => {
+                        navigate("/course-details", {
+                          state: {
+                            coursesData: course,
+                          },
+                        });
+                      }}
                     >
                       {/* <FiInfo className="me-1" /> */}
                       More Info

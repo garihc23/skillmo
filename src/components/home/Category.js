@@ -101,7 +101,7 @@ const Category = () => {
                     }}
                   >
                     <img
-                      src={course.image}
+                      src={firstImg}
                       className="card-img-top"
                       style={{
                         objectFit: 'cover',
@@ -121,7 +121,7 @@ const Category = () => {
                       }}
                     >
                       <h5
-                        className="card-title text-white text-center"
+                        className="card-title text-center"
                         style={{
                           fontFamily: 'sans-serif,Metropolis',
                           fontSize: '16px',

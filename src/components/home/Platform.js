@@ -38,6 +38,7 @@ function Platform() {
     fetchData();
   }, []);
 
+  console.log('courses', courses);
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
       <h6
@@ -69,32 +70,39 @@ function Platform() {
                   style={{ backgroundColor: 'gray' }}
                 />
                 <div>
-                  <p
-                    className="position-absolute top-0  my-3 px-2 py-1"
-                    variant="danger"
-                    style={subNewTag}
-                  >
-                    <FaFire className="me-1" />
-                    {'  '}
-                    New
-                  </p>
-                  <p
-                    className="position-absolute top-0  m-3 px-2 py-1"
-                    variant="success"
-                    style={subCertifiedTag}
-                  >
-                    <FiCheckCircle className="me-1" />
-                    {'  '} Certified
-                  </p>
-                  <p
-                    className="position-absolute top-0  my-3 px-2 py-1"
-                    variant="warning"
-                    style={subTopRatedTag}
-                  >
-                    <FiStar className="me-1" />
-                    {'  '}
-                    Top Rated
-                  </p>
+                  {course.is_new && (
+                    <p
+                      className="position-absolute top-0  my-3 px-2 py-1"
+                      variant="danger"
+                      style={subNewTag}
+                    >
+                      <FaFire className="me-1" />
+                      {'  '}
+                      New
+                    </p>
+                  )}
+
+                  {course.is_certified && (
+                    <p
+                      className="position-absolute top-0  m-3 px-2 py-1"
+                      variant="success"
+                      style={subCertifiedTag}
+                    >
+                      <FiCheckCircle className="me-1" />
+                      {'  '} Certified
+                    </p>
+                  )}
+                  {course.is_top_rated && (
+                    <p
+                      className="position-absolute top-0  my-3 px-2 py-1"
+                      variant="warning"
+                      style={subTopRatedTag}
+                    >
+                      <FiStar className="me-1" />
+                      {'  '}
+                      Top Rated
+                    </p>
+                  )}
                 </div>
                 <div>
                   <h5
@@ -102,7 +110,7 @@ function Platform() {
                     variant="danger"
                     style={titleTag}
                   >
-                    facebook{' '}
+                    {course.title_en}
                   </h5>
                 </div>
               </div>
@@ -118,7 +126,7 @@ function Platform() {
                 <div>
                   <h4 className="fw-bold mt-4 mb-4">
                     {/* Explore our more popular courses... */}
-                    {course.keyword}
+                    {course.short_desc_en}
                   </h4>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">

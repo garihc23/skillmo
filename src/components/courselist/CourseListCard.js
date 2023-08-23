@@ -75,32 +75,38 @@ const CourseListCard = (props) => {
                   style={{ backgroundColor: 'gray', height: '35vh' }}
                 />
                 <div>
-                  <p
-                    className="position-absolute top-0 mx-2 my-3 px-2 py-1"
-                    variant="danger"
-                    style={subNewTag}
-                  >
-                    <FaFire className="me-1" />
-                    {'  '}
-                    New
-                  </p>
-                  <p
-                    className="position-absolute top-0 m-3 px-2 py-1"
-                    variant="success"
-                    style={subCertifiedTag}
-                  >
-                    <FiCheckCircle className="me-1" />
-                    {'  '} Certified
-                  </p>
-                  <p
-                    className="position-absolute top-0 my-3 px-2 py-1"
-                    variant="warning"
-                    style={subTopRatedTag}
-                  >
-                    <FiStar className="me-1" />
-                    {'  '}
-                    Top Rated
-                  </p>
+                  {course.is_new && (
+                    <p
+                      className="position-absolute top-0 mx-2 my-3 px-2 py-1"
+                      variant="danger"
+                      style={subNewTag}
+                    >
+                      <FaFire className="me-1" />
+                      {'  '}
+                      New
+                    </p>
+                  )}
+                  {course.is_certified && (
+                    <p
+                      className="position-absolute top-0 m-3 px-2 py-1"
+                      variant="success"
+                      style={subCertifiedTag}
+                    >
+                      <FiCheckCircle className="me-1" />
+                      {'  '} Certified
+                    </p>
+                  )}
+                  {course.is_top_rated && (
+                    <p
+                      className="position-absolute top-0 my-3 px-2 py-1"
+                      variant="warning"
+                      style={subTopRatedTag}
+                    >
+                      <FiStar className="me-1" />
+                      {'  '}
+                      Top Rated
+                    </p>
+                  )}
                 </div>
                 <div>
                   <h5
@@ -108,7 +114,7 @@ const CourseListCard = (props) => {
                     variant="danger"
                     style={titleTag}
                   >
-                    facebook{' '}
+                    {course.title_en}
                   </h5>
                 </div>
               </div>
@@ -128,7 +134,7 @@ const CourseListCard = (props) => {
                   </span>
                 </div>
                 <div>
-                  <h4 className="fw-bold ">{course.title_en}</h4>
+                  <h4 className="fw-bold "> {course.short_desc_en}</h4>
                 </div>
                 <div className="d-flex align-items-center mt-3">
                   <div>

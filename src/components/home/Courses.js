@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import image from '../../assets/images/students-walk-downstairsdd-with-books-library 1 1.png';
 import {
@@ -12,13 +12,15 @@ import {
 import { FaFire, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {
   categoryTag,
-  certifiedTag,
-  newTag,
+  subCertifiedTag,
+  subNewTag,
   titleTag,
-  topRatedTag,
+  subTopRatedTag,
 } from '../../assets/customcss/CustomCss';
 import '../../assets/css/home/Courses.css';
 import { useNavigate } from 'react-router-dom';
+import { useCourseStore } from '../../store';
+
 const Courses = () => {
   const navigate = useNavigate();
   const itemsPerPage = 3;
@@ -26,8 +28,19 @@ const Courses = () => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const [currentPage, setCurrentPage] = React.useState(1);
 
+  const { courses, fetchCourses } = useCourseStore();
+
+  useEffect(() => {
+    async function fetchData() {
+      await fetchCourses();
+    }
+    fetchData();
+  }, []);
+
+  console.log('Popular_Course', courses);
+
   // Generate dummy course data
-  const courses = Array.from({ length: totalItems }, (_, index) => ({
+  const course = Array.from({ length: totalItems }, (_, index) => ({
     id: index + 1,
     title: `Course ${index + 1}`,
     image: `https://example.com/course${index + 1}.jpg`, // Replace with your course image URL
@@ -51,9 +64,11 @@ const Courses = () => {
     // window.location.reload();
   };
   // Calculate current page items
+  // const categorys = courses?.map((item) => item.courses);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = courses.slice(indexOfFirstItem, indexOfLastItem);
+  // console.log('PopularCourse',currentItems)
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
       <h6
@@ -82,32 +97,39 @@ const Courses = () => {
                   style={{ backgroundColor: 'gray' }}
                 />
                 <div>
-                  <p
-                    className="position-absolute top-0  m-3 px-2 py-1"
-                    variant="danger"
-                    style={newTag}
-                  >
-                    <FaFire className="me-1" />
-                    {'  '}
-                    New
-                  </p>
-                  <p
-                    className="position-absolute top-0  m-3 px-2 py-1"
-                    variant="success"
-                    style={certifiedTag}
-                  >
-                    <FiCheckCircle className="me-1" />
-                    {'  '} Certified
-                  </p>
-                  <p
-                    className="position-absolute top-0  m-3 px-2 py-1"
-                    variant="warning"
-                    style={topRatedTag}
-                  >
-                    <FiStar className="me-1" />
-                    {'  '}
-                    Top Rated
-                  </p>
+                  {course.is_new && (
+                    <p
+                      className="position-absolute top-0  my-3 px-2 py-1"
+                      variant="danger"
+                      style={subNewTag}
+                    >
+                      <FaFire className="me-1" />
+                      {'  '}
+                      New
+                    </p>
+                  )}
+
+                  {course.is_certified && (
+                    <p
+                      className="position-absolute top-0  m-3 px-2 py-1"
+                      variant="success"
+                      style={subCertifiedTag}
+                    >
+                      <FiCheckCircle className="me-1" />
+                      {'  '} Certified
+                    </p>
+                  )}
+                  {course.is_top_rated && (
+                    <p
+                      className="position-absolute top-0  my-3 px-2 py-1"
+                      variant="warning"
+                      style={subTopRatedTag}
+                    >
+                      <FiStar className="me-1" />
+                      {'  '}
+                      Top Rated
+                    </p>
+                  )}
                 </div>
                 <div>
                   <h5
@@ -115,18 +137,19 @@ const Courses = () => {
                     variant="danger"
                     style={titleTag}
                   >
-                    facebook{' '}
+                    {course.title_en}
                   </h5>
                 </div>
               </div>
               <Card.Body>
                 <div className=" d-flex ">
-                  <span style={categoryTag}>Category Name</span>
-                  <span style={categoryTag}>Category Name</span>
+                  <span style={categoryTag}>{course.course_category.lang_en}</span>
+                  <span style={categoryTag}>{course.trades_category.lang_en}</span>
                 </div>
                 <div>
                   <h4 className="fw-bold mt-4 mb-4">
-                    Explore our more popular courses...
+                    {/* Explore our more popular courses... */}
+                    {course.short_desc_en}
                   </h4>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -136,7 +159,7 @@ const Courses = () => {
                     </span>
                     <span style={{ fontSize: '14px' }}>Starting:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <strong>20 Feb 2023</strong>
+                    <strong>{course.courseStartsAt}</strong>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -146,7 +169,7 @@ const Courses = () => {
                     </span>
                     <span style={{ fontSize: '14px' }}>Schedule:</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <strong>20 Feb 2023</strong>
+                    <strong>{course.schedule}</strong>
                   </div>
                 </div>
                 <div className="d-flex align-items-center">
@@ -156,7 +179,7 @@ const Courses = () => {
                   >
                     $60
                   </h4>
-                  <span className="ms-3 text-secondary">× 3 Payments</span>
+                  <span className="ms-3 text-secondary">× {course.payment_options} Payments</span>
                   <span className="ms-2">
                     <FiInfo />
                   </span>
@@ -166,7 +189,7 @@ const Courses = () => {
                   <Col>
                     <Button className="w-100 add-cart" variant="success">
                       <FiShoppingCart className="me-1" />
-                      ADD TO CART
+                      CART
                     </Button>
                   </Col>
                   <Col>

@@ -29,7 +29,7 @@ const CourseDetails = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const location = useLocation();
-  const { coursesData } = location.state;
+  const { coursesData } = location?.state;
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };

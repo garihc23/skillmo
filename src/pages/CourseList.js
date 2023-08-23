@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import CourseListCard from '../components/courselist/CourseListCard';
-import { FaAngleDown } from 'react-icons/fa';
-import { RiHomeLine } from 'react-icons/ri';
-import { IoIosTarget } from 'react-icons/io';
+import React, { useEffect, useState } from "react";
+import CourseListCard from "../components/courselist/CourseListCard";
+import { FaAngleDown } from "react-icons/fa";
+import { RiHomeLine } from "react-icons/ri";
+import { IoIosTarget } from "react-icons/io";
 import {
   Form,
   Row,
@@ -12,11 +12,11 @@ import {
   Button,
   Container,
   Card,
-} from 'react-bootstrap';
-import '../assets/css/CourseList.css';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import image from '../assets/images/students-walk-downstairsdd-with-books-library.png';
+} from "react-bootstrap";
+import "../assets/css/CourseList.css";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+import image from "../assets/images/students-walk-downstairsdd-with-books-library.png";
 import {
   FiCheckCircle,
   FiStar,
@@ -24,7 +24,7 @@ import {
   FiCalendar,
   FiInfo,
   FiClock,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 import {
   FaFire,
   FaChevronLeft,
@@ -32,21 +32,21 @@ import {
   FaMinus,
   FaMapMarkerAlt,
   FaBullseye,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 import {
   categoryTag,
   subCertifiedTag,
   subNewTag,
   titleTag,
   subTopRatedTag,
-} from '../assets/customcss/CustomCss';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { useCourseStore } from '../store';
+} from "../assets/customcss/CustomCss";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { useCourseStore } from "../store";
 const CourseList = () => {
   const [range, setRange] = useState([0, 100]);
   const [isFilterVisible, setFilterVisible] = useState(false);
-  const [selectedFilterOption, setSelectedFilterOption] = useState('');
+  const [selectedFilterOption, setSelectedFilterOption] = useState("");
   const [isFilterBtnVisible, setFilterBtnVisible] = useState(true);
 
   const { courses, fetchCourses } = useCourseStore();
@@ -83,9 +83,9 @@ const CourseList = () => {
   // Attach the resize event listener when the component mounts
   React.useEffect(() => {
     handleScreenResize();
-    window.addEventListener('resize', handleScreenResize);
+    window.addEventListener("resize", handleScreenResize);
     return () => {
-      window.removeEventListener('resize', handleScreenResize);
+      window.removeEventListener("resize", handleScreenResize);
     };
   }, []);
 
@@ -95,49 +95,49 @@ const CourseList = () => {
     setRange(newRange);
   };
 
-  const trackStyle = { backgroundColor: 'rgba(9, 185, 112, 1)' }; // Custom track color
+  const trackStyle = { backgroundColor: "rgba(9, 185, 112, 1)" }; // Custom track color
   const handleStyle = {
-    backgroundColor: 'rgba(9, 185, 112, 1)', // Custom handle color
-    borderColor: ' rgba(9, 185, 112, 1)', // Custom handle border color
+    backgroundColor: "rgba(9, 185, 112, 1)", // Custom handle color
+    borderColor: " rgba(9, 185, 112, 1)", // Custom handle border color
   };
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const [categories, setCategories] = useState([
-    { name: 'Category 1', checked: false },
-    { name: 'Category 2', checked: false },
-    { name: 'Category 3', checked: false },
-    { name: 'Category 2', checked: false },
-    { name: 'Category 3', checked: false },
+    { name: "Category 1", checked: false },
+    { name: "Category 2", checked: false },
+    { name: "Category 3", checked: false },
+    { name: "Category 2", checked: false },
+    { name: "Category 3", checked: false },
     // Add more categories as needed
   ]);
 
   const [trades, setTrades] = useState([
     {
-      name: 'Category 1',
+      name: "Category 1",
       checked: false,
       subcategories: [
-        { name: 'Subcategory 1', checked: false },
-        { name: 'Subcategory 2', checked: false },
-        { name: 'Subcategory 3', checked: false },
+        { name: "Subcategory 1", checked: false },
+        { name: "Subcategory 2", checked: false },
+        { name: "Subcategory 3", checked: false },
       ],
     },
     {
-      name: 'Category 2',
+      name: "Category 2",
       checked: false,
       subcategories: [
-        { name: 'Subcategory 4', checked: false },
-        { name: 'Subcategory 5', checked: false },
+        { name: "Subcategory 4", checked: false },
+        { name: "Subcategory 5", checked: false },
       ],
     },
     {
-      name: 'Category 3',
+      name: "Category 3",
       checked: false,
-      subcategories: [{ name: 'Subcategory 6', checked: false }],
+      subcategories: [{ name: "Subcategory 6", checked: false }],
     },
     // Add more categories as needed
   ]);
@@ -163,9 +163,9 @@ const CourseList = () => {
   };
 
   const radioLabelStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "10px",
   };
 
   // State to keep track of whether each category's subcategories should be shown or hidden
@@ -243,14 +243,14 @@ const CourseList = () => {
               lg={3}
               className="p-4 mt-5 dropdown filter-dropdown-overlay"
               style={{
-                backgroundColor: '#fafafa',
-                borderRadius: '20px',
-                padding: '2.5%',
-                height: '100%',
+                backgroundColor: "#fafafa",
+                borderRadius: "20px",
+                padding: "2.5%",
+                height: "100%",
               }}
             >
               <div className="filter-dropdown-content">
-                <div style={{ display: 'flex', justifyContent: 'end' }}>
+                <div style={{ display: "flex", justifyContent: "end" }}>
                   <button
                     className="close-filter-button"
                     onClick={closeFilterDropdown}
@@ -261,16 +261,16 @@ const CourseList = () => {
                 <div>
                   <p
                     style={{
-                      padding: '5px',
-                      fontSize: '12px',
-                      color: 'grey',
+                      padding: "5px",
+                      fontSize: "12px",
+                      color: "grey",
                     }}
                   >
                     Filter by:
                   </p>
                   {/* distance section */}
                   <div className="d-flex">
-                    <h5 className="fw-bold" style={{ paddingRight: '68%' }}>
+                    <h5 className="fw-bold" style={{ paddingRight: "68%" }}>
                       Distance
                     </h5>
                     <div>
@@ -280,10 +280,10 @@ const CourseList = () => {
                   <div className="d-flex my-3">
                     <span
                       style={{
-                        paddingRight: '26%',
-                        color: '#777779',
-                        letterSpacing: '2px',
-                        fontSize: '14px',
+                        paddingRight: "26%",
+                        color: "#777779",
+                        letterSpacing: "2px",
+                        fontSize: "14px",
                         fontWeight: 700,
                       }}
                     >
@@ -294,28 +294,28 @@ const CourseList = () => {
                       <div>
                         <FaBullseye
                           style={{
-                            color: '#09B970',
-                            marginLeft: '80%',
-                            marginTop: '-48%',
+                            color: "#09B970",
+                            marginLeft: "80%",
+                            marginTop: "-48%",
                           }}
                         ></FaBullseye>
                       </div>
                     </div>
                   </div>
-                  <div style={{ borderTop: '1px dotted #000' }}></div>
+                  <div style={{ borderTop: "1px dotted #000" }}></div>
                   <div className="d-flex my-4">
                     <div className="me-2 w-75">
                       <Button
                         className="w-100 btn-lg px-4 "
                         variant="info"
                         style={{
-                          background: '#fafafafa',
-                          fontSize: '18px',
-                          borderColor: '#1B17201A',
-                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                          padding: '13px 0px 20px 25px',
-                          height: '54px',
-                          textAlign: 'left',
+                          background: "#fafafafa",
+                          fontSize: "18px",
+                          borderColor: "#1B17201A",
+                          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                          padding: "13px 0px 20px 25px",
+                          height: "54px",
+                          textAlign: "left",
                         }}
                       >
                         <strong>{range[0]} miles</strong>
@@ -326,11 +326,11 @@ const CourseList = () => {
                         className="w-100 btn-lg "
                         variant="info"
                         style={{
-                          background: '#fafafafa',
-                          fontSize: '18px',
-                          borderColor: '#09B970',
-                          borderWidth: '2px',
-                          height: '54px',
+                          background: "#fafafafa",
+                          fontSize: "18px",
+                          borderColor: "#09B970",
+                          borderWidth: "2px",
+                          height: "54px",
 
                           //padding:  '15px 45px 15px 45px',
                         }}
@@ -351,13 +351,13 @@ const CourseList = () => {
                     />
                   </div>
                   <div
-                    style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
+                    style={{ borderTop: "1px dotted #000", marginTop: "20px" }}
                   ></div>
                   {/* price section */}
                   <div className="d-flex">
                     <h5
                       className="fw-bold mt-3 mb-1"
-                      style={{ paddingRight: '78%' }}
+                      style={{ paddingRight: "78%" }}
                     >
                       Price
                     </h5>
@@ -371,11 +371,11 @@ const CourseList = () => {
                         className="w-100 btn-lg px-3 mx-2"
                         variant="info"
                         style={{
-                          background: '#fafafafa',
-                          fontSize: '18px',
-                          borderColor: '#1B17201A',
-                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                          height: '54px',
+                          background: "#fafafafa",
+                          fontSize: "18px",
+                          borderColor: "#1B17201A",
+                          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                          height: "54px",
                         }}
                       >
                         <strong>${range[0]}</strong>
@@ -390,11 +390,11 @@ const CourseList = () => {
                         className="w-100 btn-lg px-3 mx-2"
                         variant="info"
                         style={{
-                          background: '#fafafafa',
-                          fontSize: '18px',
-                          borderColor: '#1B17201A',
-                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                          height: '54px',
+                          background: "#fafafafa",
+                          fontSize: "18px",
+                          borderColor: "#1B17201A",
+                          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                          height: "54px",
                         }}
                       >
                         <strong>${range[1]}</strong>
@@ -405,11 +405,11 @@ const CourseList = () => {
                         className="w-100 btn-lg px-3 mx-2"
                         variant="info"
                         style={{
-                          background: '#fafafafa',
-                          fontSize: '18px',
-                          borderColor: '#09B970',
-                          borderWidth: '2px',
-                          height: '54px',
+                          background: "#fafafafa",
+                          fontSize: "18px",
+                          borderColor: "#09B970",
+                          borderWidth: "2px",
+                          height: "54px",
                         }}
                       >
                         <strong>OK</strong>
@@ -428,11 +428,11 @@ const CourseList = () => {
                     />
                   </div>
                   <div
-                    style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
+                    style={{ borderTop: "1px dotted #000", marginTop: "20px" }}
                   ></div>
                   {/* categories section start here */}
                   <div className="d-flex my-4">
-                    <h5 className="fw-bold" style={{ paddingRight: '55%' }}>
+                    <h5 className="fw-bold" style={{ paddingRight: "55%" }}>
                       Categories
                     </h5>
                     <div>
@@ -444,9 +444,9 @@ const CourseList = () => {
                       <div
                         className="row"
                         style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          textAlign: 'left',
+                          display: "flex",
+                          flexDirection: "column",
+                          textAlign: "left",
                         }}
                       >
                         {categories?.map((category, index) => (
@@ -458,12 +458,12 @@ const CourseList = () => {
                               checked={category.checked}
                               onChange={() => handleCheckboxChange(index)}
                               style={{
-                                color: category.checked ? '#09B970' : 'inherit',
-                                marginLeft: '-30px',
-                                paddingBottom: '30px',
-                                transform: 'scale(1.1)', // Increase checkbox size
-                                borderColor: '#fff',
-                                borderWidth: '10px',
+                                color: category.checked ? "#09B970" : "inherit",
+                                marginLeft: "-30px",
+                                paddingBottom: "30px",
+                                transform: "scale(1.1)", // Increase checkbox size
+                                borderColor: "#fff",
+                                borderWidth: "10px",
                               }}
                             />
                           </div>
@@ -473,11 +473,11 @@ const CourseList = () => {
                   </div>
 
                   <div
-                    style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
+                    style={{ borderTop: "1px dotted #000", marginTop: "20px" }}
                   ></div>
                   {/* company section start here */}
                   <div className="d-flex my-4">
-                    <h5 className="fw-bold" style={{ paddingRight: '55%' }}>
+                    <h5 className="fw-bold" style={{ paddingRight: "55%" }}>
                       Company
                     </h5>
                     <div>
@@ -489,9 +489,9 @@ const CourseList = () => {
                       <div
                         className="row"
                         style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          textAlign: 'left',
+                          display: "flex",
+                          flexDirection: "column",
+                          textAlign: "left",
                         }}
                       >
                         {categories?.map((category, index) => (
@@ -503,12 +503,12 @@ const CourseList = () => {
                               checked={category.checked}
                               onChange={() => handleCheckboxChange(index)}
                               style={{
-                                color: category.checked ? '#09B970' : 'inherit',
-                                marginLeft: '-30px',
-                                paddingBottom: '30px',
-                                transform: 'scale(1.1)', // Increase checkbox size
-                                borderColor: '#fff',
-                                borderWidth: '10px',
+                                color: category.checked ? "#09B970" : "inherit",
+                                marginLeft: "-30px",
+                                paddingBottom: "30px",
+                                transform: "scale(1.1)", // Increase checkbox size
+                                borderColor: "#fff",
+                                borderWidth: "10px",
                               }}
                             />
                           </div>
@@ -517,11 +517,11 @@ const CourseList = () => {
                     </Form>
                   </div>
                   <div
-                    style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
+                    style={{ borderTop: "1px dotted #000", marginTop: "20px" }}
                   ></div>
                   {/* Trades section start from here */}
                   <div className="d-flex my-4">
-                    <h5 className="fw-bold" style={{ paddingRight: '65%' }}>
+                    <h5 className="fw-bold" style={{ paddingRight: "65%" }}>
                       Trades
                     </h5>
                     <div>
@@ -532,9 +532,9 @@ const CourseList = () => {
                     <Form
                       className="row"
                       style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        textAlign: 'left',
+                        display: "flex",
+                        flexDirection: "column",
+                        textAlign: "left",
                       }}
                     >
                       {trades?.map((category, categoryIndex) => (
@@ -542,18 +542,18 @@ const CourseList = () => {
                           className="col-md-12 trade-category-index "
                           key={categoryIndex}
                           style={{
-                            display: 'flex',
-                            flexDirection: 'column ',
-                            alignItems: 'left',
+                            display: "flex",
+                            flexDirection: "column ",
+                            alignItems: "left",
                             /* marginLeft: '-40px', */
                           }}
                         >
                           <div
                             style={{
-                              display: 'flex',
-                              alignItems: 'left',
-                              cursor: 'pointer',
-                              paddingBottom: '20px',
+                              display: "flex",
+                              alignItems: "left",
+                              cursor: "pointer",
+                              paddingBottom: "20px",
                             }}
                             onClick={() => handleCategoryClick(categoryIndex)}
                           >
@@ -566,14 +566,14 @@ const CourseList = () => {
                                 handleCategoryCheckboxChange(categoryIndex)
                               }
                             />
-                            <span style={{ marginLeft: '15px' }}>
-                              {categoryStates[categoryIndex] ? '▼' : '►'}
+                            <span style={{ marginLeft: "15px" }}>
+                              {categoryStates[categoryIndex] ? "▼" : "►"}
                             </span>
                           </div>
 
                           {categoryStates[categoryIndex] && (
-                            <div style={{ marginLeft: '50px' }}>
-                              {' '}
+                            <div style={{ marginLeft: "50px" }}>
+                              {" "}
                               {category.subcategories?.map(
                                 (subcategory, subcategoryIndex) => (
                                   <div key={subcategoryIndex}>
@@ -592,13 +592,13 @@ const CourseList = () => {
                                       }
                                       style={{
                                         color: subcategory.checked
-                                          ? '#09B970'
-                                          : 'inherit',
-                                        transform: 'scale(1.1)',
-                                        marginLeft: '-30px',
-                                        paddingBottom: '30px',
-                                        borderColor: '#fff',
-                                        borderWidth: '10px',
+                                          ? "#09B970"
+                                          : "inherit",
+                                        transform: "scale(1.1)",
+                                        marginLeft: "-30px",
+                                        paddingBottom: "30px",
+                                        borderColor: "#fff",
+                                        borderWidth: "10px",
                                       }}
                                     />
                                   </div>
@@ -612,11 +612,11 @@ const CourseList = () => {
                   </div>
 
                   <div
-                    style={{ borderTop: '1px dotted #000', marginTop: '20px' }}
+                    style={{ borderTop: "1px dotted #000", marginTop: "20px" }}
                   ></div>
                   {/* sechudele section */}
                   <div className="d-flex my-4">
-                    <h5 className="fw-bold" style={{ paddingRight: '65%' }}>
+                    <h5 className="fw-bold" style={{ paddingRight: "65%" }}>
                       Schedule
                     </h5>
                     <div>
@@ -628,13 +628,13 @@ const CourseList = () => {
                       <input
                         type="radio"
                         value="Option 1"
-                        checked={selectedOption === 'Option 1'}
+                        checked={selectedOption === "Option 1"}
                         onChange={handleOptionChange}
                         style={{
-                          color: '#09B970',
-                          margin: '10px',
-                          padding: '5px',
-                          transform: 'scale(1.1)', // Increase checkbox size
+                          color: "#09B970",
+                          margin: "10px",
+                          padding: "5px",
+                          transform: "scale(1.1)", // Increase checkbox size
                         }}
                       />
                       <label>Weekday</label>
@@ -644,13 +644,13 @@ const CourseList = () => {
                     <input
                       type="radio"
                       value="Option 2"
-                      checked={selectedOption === 'Option 2'}
+                      checked={selectedOption === "Option 2"}
                       onChange={handleOptionChange}
                       style={{
-                        color: '#09B970',
-                        margin: '10px',
-                        padding: '5px',
-                        transform: 'scale(1.2)', // Increase checkbox size
+                        color: "#09B970",
+                        margin: "10px",
+                        padding: "5px",
+                        transform: "scale(1.2)", // Increase checkbox size
                       }}
                     />
                     <label>Weekend</label>
@@ -659,22 +659,22 @@ const CourseList = () => {
                     <input
                       type="radio"
                       value="Option 3"
-                      checked={selectedOption === 'Option 3'}
+                      checked={selectedOption === "Option 3"}
                       onChange={handleOptionChange}
                       style={{
-                        color: '#09B970',
-                        margin: '10px',
-                        padding: '5px',
-                        transform: 'scale(1.2)', // Increase checkbox size
+                        color: "#09B970",
+                        margin: "10px",
+                        padding: "5px",
+                        transform: "scale(1.2)", // Increase checkbox size
                       }}
                     />
                     <label>Both</label>
                   </div>
                   <div
                     style={{
-                      borderTop: '1px dotted #000',
-                      marginTop: '20px',
-                      marginBottom: '30px',
+                      borderTop: "1px dotted #000",
+                      marginTop: "20px",
+                      marginBottom: "30px",
                     }}
                   ></div>
                 </div>
@@ -687,7 +687,7 @@ const CourseList = () => {
             xs={12}
             lg={9}
             className="right-section"
-            style={{ paddingLeft: '30px' }}
+            style={{ paddingLeft: "30px" }}
           >
             <div className="mt-5 ">
               <Row>
@@ -695,8 +695,8 @@ const CourseList = () => {
                   <h4 className="fw-bold">Suitable Constructing Courses</h4>
                   <p
                     style={{
-                      fontSize: '12px',
-                      color: 'grey',
+                      fontSize: "12px",
+                      color: "grey",
                     }}
                   >
                     Showing results for “Architecture Courses”
@@ -706,15 +706,15 @@ const CourseList = () => {
                   <div className=" d-flex justify-content-end">
                     <div
                       style={{
-                        color: 'grey',
-                        fontSize: '12px',
-                        paddingRight: '15px',
-                        paddingTop: '15px',
-                        alignContent: 'center',
+                        color: "grey",
+                        fontSize: "12px",
+                        paddingRight: "15px",
+                        paddingTop: "15px",
+                        alignContent: "center",
                       }}
                     >
-                      {' '}
-                      Sort By Price:{' '}
+                      {" "}
+                      Sort By Price:{" "}
                     </div>
                     <Dropdown data-bs-theme="light">
                       <Dropdown.Toggle
@@ -723,9 +723,9 @@ const CourseList = () => {
                         variant="secondary"
                         style={{
                           fontWeight: 700,
-                          padding: '10px 70px 10px 25px',
-                          borderRadius: '10px',
-                          backgroundColor: '#f1f3f9',
+                          padding: "10px 70px 10px 25px",
+                          borderRadius: "10px",
+                          backgroundColor: "#f1f3f9",
                           /* justifyContent: 'right', */
                         }}
                       >

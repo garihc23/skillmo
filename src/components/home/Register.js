@@ -21,13 +21,12 @@ const Register = () => {
             backgroundColor: 'rgba(57, 18, 140, 1)',
             color: 'white',
             paddingLeft: '130px',
-            height: '504px',
           }}
         >
-          <div style={{ width: '60%' }}>
+          <div style={{ width: '60%',paddingBottom:'60px'  }}>
             <h5
               style={{
-                marginBottom: '100px',
+                marginBottom: '60px',
                 marginTop: '40px',
                 fontSize: '14px',
                 fontWeight: 700,
@@ -61,13 +60,12 @@ const Register = () => {
             backgroundSize: 'cover',
             color: 'white',
             paddingLeft: '130px',
-            height: '504px',
           }}
         >
-          <div style={{ width: '60%' }}>
+          <div style={{ width: '60%',paddingBottom:'60px'  }}>
             <h5
               style={{
-                marginBottom: '100px',
+                marginBottom: '60px',
                 marginTop: '40px',
                 fontSize: '14px',
                 fontWeight: 700,

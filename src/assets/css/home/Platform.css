@@ -1,5 +1,15 @@
 .title-tag {
   color: #1877f2;
+  border-radius: 4px;
+  left: 5% ;
+  background: #fafafa;
+  padding: 3px;
+  font-weight: bold;
+  bottom: -20px;
+}
+
+.platform-card-desc{
+  min-height: 60px;
 }
 
 .add-cart {

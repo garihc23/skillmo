@@ -42,16 +42,33 @@ import {
 } from "../assets/customcss/CustomCss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useCourseStore } from "../store";
+import { useCourseStore, useCourseByLocationStore} from "../store";
+import { useLocation } from "react-router-dom";
+import { fetchCourseByLocation } from "../api/courseByLocationApi";
+
 const CourseList = () => {
+  const location = useLocation();
+  console.log('location state',location.state);
+  console.log('location state id',location.state.location_id);
+
   const [range, setRange] = useState([0, 100]);
   const [isFilterVisible, setFilterVisible] = useState(false);
   const [selectedFilterOption, setSelectedFilterOption] = useState("");
   const [isFilterBtnVisible, setFilterBtnVisible] = useState(true);
 
   const { courses, fetchCourses } = useCourseStore();
-
+  const { coursesByLocation, fetchCourseByLocation} = useCourseByLocationStore();
+  /* const coursesByLocationData= location?.state?.location_id;
+  console.log('location22:',coursesByLocation); */
   useEffect(() => {
+    async function fetchCourseByLocationData() {
+      await fetchCourseByLocation(location.state.location_id);
+    }
+    fetchCourseByLocationData();
+  }, []);
+  console.log('location_id: ',coursesByLocation);
+  
+  /* useEffect(() => {
     async function fetchData() {
       await fetchCourses();
     }
@@ -61,7 +78,7 @@ const CourseList = () => {
     `Course`,
     courses?.map((course) => course.id)
   );
-
+ */
   /* filter Section Area */
   const toggleFilter = () => {
     setFilterVisible(!isFilterVisible);

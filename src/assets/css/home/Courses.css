@@ -1,5 +1,16 @@
+
+.card-short-desc{
+  min-height: 60px !important;
+}
+
 .title-tag {
   color: #1877f2;
+  border-radius: 4px;
+  left: 5% ;
+  background: #fafafa;
+  padding: 3px;
+  font-weight: bold;
+  bottom: -20px;
 }
 
 .add-cart {
@@ -9,7 +20,7 @@
   font-size: 14px !important;
 }
 /* Media Queries for responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   /* Adjust the font size and padding for smaller screens */
   .container h6 {
     font-size: 14px;
@@ -21,7 +32,12 @@
   }
 
   .title-tag {
-    font-size: 14px;
+    font-size: 18px;
+    top: 70% !important;
+    bottom: 0% !important;
+    left: 5% !important;
+    right: 35% !important;
+    
   }
 
   .categoryTag {
@@ -60,8 +76,11 @@
   }
 
   .title-tag {
-    font-size: 12px;
-    padding: 8px 12px;
+    font-size: 28px;
+    top: 75% !important;
+    bottom: 0% !important;
+    left: 5% !important;
+    right: 45% !important;
   }
 
   .categoryTag {

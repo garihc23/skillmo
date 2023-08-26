@@ -37,6 +37,7 @@ const Courses = () => {
     fetchData();
   }, []);
 
+
   console.log('Popular_Course', courses);
 
   // Generate dummy course data
@@ -63,12 +64,15 @@ const Courses = () => {
     navigate('/course-list');
     // window.location.reload();
   };
+  const filterTopRated=(courses.filter(item=>item.is_top_rated==true));
   // Calculate current page items
   // const categorys = courses?.map((item) => item.courses);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = courses.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filterTopRated.slice(indexOfFirstItem, indexOfLastItem);
   // console.log('PopularCourse',currentItems)
+  
+
   return (
     <div className="container " style={{ paddingTop: '50px' }}>
       <h6
@@ -135,7 +139,7 @@ const Courses = () => {
                   <h5
                     className="position-absolute mb-n3 p-4 title-tag"
                     variant="danger"
-                    style={titleTag}
+                    /* style={titleTag} */
                   >
                     {course.title_en}
                   </h5>
@@ -150,10 +154,10 @@ const Courses = () => {
                     {course.trades_category.lang_en}
                   </span>
                 </div>
-                <div>
-                  <h4 className="fw-bold mt-4 mb-4">
+                <div className='card-short-desc'>
+                  <h4 className="fw-bold mt-4 mb-4 " style={{fontSize: '20px'}}>
                     {/* Explore our more popular courses... */}
-                    {course.short_desc_en.slice(0, 35) + '...'}
+                    {course.short_desc_en.slice(0, 48) + '...'}
                   </h4>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -233,213 +237,7 @@ const Courses = () => {
             </Card>
           </div>
         ))}
-        {/* <div className="col-md-4">
-          <Card>
-            <div className="position-relative">
-              <Card.Img
-                src={image}
-                alt="Card image"
-                style={{ backgroundColor: 'gray' }}
-              />
-              <div>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="danger"
-                  style={newTag}
-                >
-                  <FaFire className="me-1" />
-                  {'  '}
-                  New
-                </p>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="success"
-                  style={certifiedTag}
-                >
-                  <FiCheckCircle className="me-1" />
-                  {'  '} Certified
-                </p>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="warning"
-                  style={topRatedTag}
-                >
-                  <FiStar className="me-1" />
-                  {'  '}
-                  Top Rated
-                </p>
-              </div>
-              <div>
-                <h5
-                  className="position-absolute mb-n3 p-4"
-                  variant="danger"
-                  style={titleTag}
-                >Facebook </h5>
-              </div>
-            </div>
-            <Card.Body>
-
-              <div className=" d-flex ">
-                <span style={categoryTag}>Category Name</span>
-                <span style={categoryTag}>Category Name</span>
-              </div>
-              <div>
-                <h4 className="fw-bold mt-4 mb-4">Explore our more popular courses...</h4>
-              </div>
-              <div className="d-flex justify-content-between align-items-center mt-3">
-                <div>
-                  <span className="me-2">
-                    <FiCalendar style={{ color: "#09B970" }} />
-                  </span>
-                  Starting:&nbsp;&nbsp;&nbsp;&nbsp;<strong>20 Feb 2023</strong>
-                </div>
-              </div>
-              <div className="d-flex justify-content-between align-items-center mt-3">
-                <div>
-                  <span className="me-2">
-                    <FiClock style={{ color: "#09B970" }} />
-                  </span>
-                  Starting:&nbsp;&nbsp;&nbsp;&nbsp;<strong>20 Feb 2023</strong>
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <h4 className="fw-bold mt-4 mb-4" style={{ color: '#09B970' }}>$60</h4>
-                <span className="ms-3">× 3 Payments</span>
-                <span className="ms-2">
-                  <FiInfo />
-                </span>
-              </div>
-              <Row>
-                <Col>
-                  <Button className="w-100" variant="success">
-                    <FiShoppingCart className="me-1" />
-                    Add to Cart
-                  </Button>
-                </Col>
-                <Col>
-                  <Button
-                    className="w-100"
-                    variant="info"
-                    style={{ background: '#fafafafa' }}
-                  >
-                    <FiInfo className="me-1" />
-                    More Info
-                  </Button>
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-md-4">
-          <Card>
-            <div className="position-relative">
-              <Card.Img
-                src={image}
-                alt="Card image"
-                style={{ backgroundColor: 'gray' }}
-              />
-              <div>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="danger"
-                  style={newTag}
-                >
-                  <FaFire className="me-1" />
-                  {'  '}
-                  New
-                </p>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="success"
-                  style={certifiedTag}
-                >
-                  <FiCheckCircle className="me-1" />
-                  {'  '} Certified
-                </p>
-                <p
-                  className="position-absolute top-0  m-3 px-2 py-1"
-                  variant="warning"
-                  style={topRatedTag}
-                >
-                  <FiStar className="me-1" />
-                  {'  '}
-                  Top Rated
-                </p>
-              </div>
-              <div>
-                <h5
-                  className="position-absolute mb-n3 p-4"
-                  variant="danger"
-                  style={titleTag}
-                >Facebook </h5>
-              </div>
-
-            </div>
-            <Card.Body>
-              <div className=" d-flex ">
-                <span style={categoryTag}>Category Name</span>
-                <span style={categoryTag}>Category Name</span>
-              </div>
-              <div>
-                <h4 className="fw-bold mt-4 mb-4">Explore our more popular courses...</h4>
-              </div>
-              <div className="d-flex justify-content-between align-items-center mt-3">
-                <div>
-                  <span className="me-2">
-                    <FiCalendar style={{ color: "#09B970" }} />
-                  </span>
-                  Starting:&nbsp;&nbsp;&nbsp;&nbsp;<strong>20 Feb 2023</strong>
-                </div>
-              </div>
-              <div className="d-flex justify-content-between align-items-center mt-3">
-                <div>
-                  <span className="me-2">
-                    <FiClock style={{ color: "#09B970" }} />
-                  </span>
-                  Starting:&nbsp;&nbsp;&nbsp;&nbsp;<strong>20 Feb 2023</strong>
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <h4 className="fw-bold mt-4 mb-4" style={{ color: '#09B970' }}>$60</h4>
-                <span className="ms-3">× 3 Payments</span>
-                <span className="ms-2">
-                  <FiInfo />
-                </span>
-              </div>
-              <Row>
-                <Col>
-                  <Button className="w-100" variant="success">
-                    <FiShoppingCart className="me-1" />
-                    Add to Cart
-                  </Button>
-                </Col>
-                <Col>
-                  <Button
-                    className="w-100"
-                    variant="info"
-                    style={{ background: '#fafafafa' }}
-                  >
-                    <FiInfo className="me-1" />
-                    More Info
-                  </Button>
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
-        </div> */}
         <div className="d-flex justify-content-between align-items-center mt-3 mb-4">
-          {/* <button
-            className="btn rounded"
-            style={{
-              border: '2px solid #09B970',
-              backgroundColor: 'transparent',
-              padding: '10px 20px',
-              fontSize: '14px',
-              fontWeight: 'bold',
-            }}
-            onClick={handleButtonClick}
-          >            
-          </button> */}
           <button
             className="btn "
             style={{
@@ -488,7 +286,6 @@ const Courses = () => {
             </ul>
           </nav>
         </div>
-        {/* Repeat the above code for the remaining two cards */}
       </div>
     </div>
   );

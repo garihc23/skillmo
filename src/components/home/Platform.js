@@ -21,6 +21,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/home/Platform.css';
 import { useCourseStore } from '../../store';
 
+
 function Platform() {
   const navigate = useNavigate();
 
@@ -37,6 +38,8 @@ function Platform() {
     }
     fetchData();
   }, []);
+
+  const filterNew=courses.filter(item=>item.is_new=true);
 
   console.log('courses', courses);
   return (
@@ -60,8 +63,8 @@ function Platform() {
         </h3>
       </div>
       <div className="row my-4">
-        {courses?.map((course, index) => (
-          <div className="col-md-3">
+        {filterNew?.map((course, index) => (
+          <div className="col-md-3 my-2">
             <Card key={index}>
               <div className="position-relative">
                 <Card.Img
@@ -123,8 +126,8 @@ function Platform() {
                     {course.trades_category.lang_en}
                   </span>
                 </div>
-                <div>
-                  <h4 className="fw-bold mt-4 mb-4">
+                <div className='platform-card-desc'>
+                  <h4 className="fw-bold mt-4 mb-4" style={{fontSize: '18px'}}>
                     {/* Explore our more popular courses... */}
                     {course.short_desc_en.slice(0, 35) + '...'}
                   </h4>

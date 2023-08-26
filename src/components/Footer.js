@@ -73,6 +73,11 @@ const Footer = () => {
                   BECOME A PARTNER
                 </Button>
               </li>
+              <a href="https://chatcloudserver.co.in/login"  target="_blank" style={{textDecoration: 'none'}}>
+                <li className="green-bullet" style={{cursor: 'pointer'}}>
+                    Firm Login
+                </li>
+              </a>
             </ul>
           </Col>
         </Row>

@@ -2,4 +2,6 @@
 import useUserStore from './userStore'; // Import additional stores as needed
 import useCourseStore from './courseStore';
 import useCategoryStore from './categoryStore';
-export { useUserStore, useCourseStore,useCategoryStore }; // Export all the stores
+import useLocationStore from './locationStore';
+import useCourseByLocationStore from './courseByLocationStore';
+export { useUserStore, useCourseStore,useCategoryStore, useLocationStore, useCourseByLocationStore }; // Export all the stores
